@@ -1,6 +1,6 @@
 # DeepOpenLung Overview
 
-This is the Deep Learning Open-source Lung cancer risk estimation repository, with PyTorch implementations. We prevoide source code, running tutorial, docker, and example image here.
+This is the Deep Learning Open-source Lung cancer risk estimation repository, with PyTorch implementations. We prevoide source code, running tutorial, docker, and [example image](https://drive.google.com/drive/folders/1gyKfWa_vmI_0K0dZ_lBUynCnOJhy3dKU?usp=sharing) in this repository.
 
 Please see the requirement in the Dockerfile. Different version packages should be easy to adapt (not guarantee). 
 
@@ -43,5 +43,7 @@ All the steps can be find in run_all.sh. A INPUTS and OUTPUTS example can be fou
 
 ```${PRED_CSV}``` is the predicted result from deep learning method.
 
+# Docker
 
+The Dockerfile is shared in this repository. The docker image rg15/deeplung:0.3 can be downloaded from DockHub. 
 
