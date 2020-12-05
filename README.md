@@ -44,4 +44,17 @@ All the steps can be find in run_all.sh. A INPUTS and OUTPUTS example can be fou
 ```${PRED_CSV}``` is the predicted result from deep learning method.
 
 
+# Docker
+
+Docker image can be downloaded from docker hub: rg15/deeplung:0.7
+
+INPUTS / OUTPUTS / config.yaml example can be downloaded from: https://vanderbilt.box.com/s/zhurl7o44k7w66qg0ymzjslradneqs09
+
+Example command line: 
+
+(1)For NIfTI: 
+> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml deeplung:0.7 sh run_all.sh  
+
+(2) For DICOM: 
+> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml deeplung:0.7 sh run_all_DICOM.sh 
 
