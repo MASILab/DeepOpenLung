@@ -27,9 +27,16 @@ class MultipathModel(nn.Module):
         self.fc1 = nn.Linear(128, 64)
         
         self.dropout = nn.Dropout(0.2)
-        self.attention = nn.Sequential(
+#         self.attention = nn.Sequential(
+#             nn.Linear(64, 8),
+#             nn.Tanh(), 
+#             nn.Linear(8, 1)
+#         )
+        
+        self.attention = nn.Sequential( # this version with little overfit. better
             nn.Linear(64, 1),
-            nn.Tanh()
+            nn.Tanh(), 
+
         )
         
         # consider to replace the attention layer with torch.nn.attention. 

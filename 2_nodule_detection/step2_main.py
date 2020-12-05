@@ -1,5 +1,5 @@
 #from config_submit import config as config_submit
-
+import yaml
 import torch
 
 from torch.backends import cudnn
@@ -20,7 +20,7 @@ import pdb
 import argparse
 
 
-from detect_config import config
+#from detect_config import config
 
 parser = argparse.ArgumentParser()
 
@@ -30,15 +30,23 @@ parser.add_argument('--bbox_root', type=str, default='/nfs/masi/gaor2/tmp/justte
                     help='the root for save preprocessed data')
 parser.add_argument('--prep_root', type=str, default='/nfs/masi/gaor2/tmp/justtest/prep',
                     help='the root for save preprocessed data')
+parser.add_argument('--config', type=str, default='../config.yaml',
+                    help='the root of original data')
 
 args = parser.parse_args()
+
+f = open(args.config, 'r').read()
+cfig = yaml.load(f)
+config = cfig['detect']
+
 config['datadir'] = args.prep_root
 
 sess_splits = pd.read_csv(args.sess_csv)['id'].tolist()
 config['testsplit'] = sess_splits
-
+#config1 = config
 nodmodel = import_module('net_detector')
 config1, nod_net, loss, get_pbb = nodmodel.get_model()
+config1['datadir'] = config['datadir']
 checkpoint = torch.load('./2_nodule_detection/detector.ckpt')
 nod_net.load_state_dict(checkpoint['state_dict'])
 
@@ -54,6 +62,6 @@ split_comber = SplitComb(config1['sidelen'],config1['max_stride'],config1['strid
 
 dataset = DataBowl3Detector(config['testsplit'],config1,phase='test',split_comber=split_comber)
 test_loader = DataLoader(dataset, batch_size = 1,
-    shuffle = False, num_workers = 1, pin_memory=False, collate_fn =collate)
+    shuffle = False, num_workers = 0, pin_memory=False, collate_fn =collate)
 
 test_detect(test_loader, nod_net, get_pbb, bbox_result_path, config1)

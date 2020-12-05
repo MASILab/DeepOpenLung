@@ -33,7 +33,6 @@ for i, item in df.iterrows():
 data_path = args.feat_root
 
 
-
 model = MultipathModelBL(1)
 
 model_pth = './4_co_learning/pretrain.pth'

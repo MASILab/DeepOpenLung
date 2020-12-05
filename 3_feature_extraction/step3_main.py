@@ -7,6 +7,7 @@ from importlib import import_module
 from data_classifier import DataBowl3Classifier
 import argparse
 import pandas as pd
+import yaml
 
 from cls_config import config as config2
 
@@ -20,8 +21,14 @@ parser.add_argument('--bbox_root', type=str, default='/nfs/masi/gaor2/tmp/justte
                     help='the root of original data')
 parser.add_argument('--feat_root', type=str, default='/nfs/masi/gaor2/tmp/justtest',
                     help='the root of original data')
+parser.add_argument('--config', type=str, default='../config.yaml',
+                    help='the root of original data')
 
 args = parser.parse_args()
+
+f = open(args.config, 'r').read()
+cfig = yaml.load(f)
+config2 = cfig['cls']
 
 casemodel = import_module('net_classifier')
 casenet = casemodel.CaseNet(topk=5)
