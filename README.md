@@ -46,7 +46,7 @@ All the steps can be find in run_all.sh. A INPUTS and OUTPUTS example can be fou
 
 # Docker
 
-Docker image can be downloaded from docker hub: rg15/deeplung:0.7
+Docker image can be downloaded from docker hub: rg15/deeplung:0.7 (cpu), rg15/deeplunggpu:0.2 (gpu)
 
 INPUTS / OUTPUTS / config.yaml example can be downloaded from: https://vanderbilt.box.com/s/zhurl7o44k7w66qg0ymzjslradneqs09
 
