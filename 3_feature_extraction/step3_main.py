@@ -30,9 +30,12 @@ f = open(args.config, 'r').read()
 cfig = yaml.load(f)
 config2 = cfig['cls']
 
+
 casemodel = import_module('net_classifier')
 casenet = casemodel.CaseNet(topk=5)
+
 # load_state_dict
+
 config2 = casemodel.config
 state_dict = torch.load('./3_feature_extraction/classifier_state_dictpy3.ckpt')
 
@@ -46,6 +49,7 @@ config2['bboxpath'] = args.bbox_root
 config2['datadir'] = args.prep_root
 config2['feat128_root'] = args.feat_root
 
+
 sess_splits = pd.read_csv(args.sess_csv)['id'].tolist()
 testsplit = sess_splits
 
@@ -56,30 +60,23 @@ def test_casenet(model,testset):
         shuffle = False,
         num_workers = 4,
         pin_memory=False)
-    #model = model.cuda()
+    
     model.eval()
     predlist = []
+    device = torch.device('cuda' if torch.cuda.is_available() and cfig['cls']['gpu'] else 'cpu')
     
-    #     weight = torch.from_numpy(np.ones_like(y).float().cuda()
     for i,(x,coord, subj_name) in enumerate(data_loader):
         print (i, subj_name[0])   
-        coord = Variable(coord) #.cuda()
-        x = Variable(x) #.cuda()
+        coord = Variable(coord).to(device) #.cuda()
+        x = Variable(x).to(device) #.cuda()
+        model = model.to(device)
         nodulePred,casePred, feat128, feat64 = model(x,coord)
         predlist.append(casePred.data.cpu().numpy())
         #print (out.data.cpu().numpy().shape, out[0].data.cpu().numpy().shape)
         fname128 = config2['feat128_root'] + '/' + subj_name[0] + '.npy'
-#         fname64 = config_submit['feat64_save_root'] + '/' + subj_name[0] + '.npy'
-#         if os.path.exists(fname128):
-#             print (fname128, ' existed')
-#         if os.path.exists(fname64):
-#             print (fname64, ' existed')
-#        if 'feat128' in config_submit['save_feat_mode']:
-        np.save(fname128, feat128.data.numpy())
-#         if 'feat64' in config_submit['save_feat_mode'] :
-#             np.save(fname64, feat64.data.cpu().numpy())
 
-        #print([i,data_loader.dataset.split[i,1],casePred.data.cpu().numpy()])
+        np.save(fname128, feat128.cpu().data.numpy())
+
     predlist = np.concatenate(predlist)
     return predlist    
 

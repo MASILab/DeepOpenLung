@@ -34,7 +34,7 @@ python3 ./1_preprocess/step1_main.py --sess_csv ${SPLIT_CSV} --prep_root ${PREP_
 
 echo " step 1 data preprocess finished !"
 
-echo "Run step 2 nodule detection ... (CPU version, 3 - 4 mins per scan needed)"
+echo "Run step 2 nodule detection ... "
 
 python3 ./2_nodule_detection/step2_main.py --sess_csv ${SPLIT_CSV} --bbox_root ${BBOX_ROOT} --prep_root ${PREP_ROOT} --config ${CONFIG_PATH}
 

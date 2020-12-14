@@ -43,14 +43,12 @@ config['datadir'] = args.prep_root
 
 sess_splits = pd.read_csv(args.sess_csv)['id'].tolist()
 config['testsplit'] = sess_splits
-#config1 = config
 nodmodel = import_module('net_detector')
 config1, nod_net, loss, get_pbb = nodmodel.get_model()
 config1['datadir'] = config['datadir']
+config1['gpu'] = config['gpu']
 checkpoint = torch.load('./2_nodule_detection/detector.ckpt')
 nod_net.load_state_dict(checkpoint['state_dict'])
-
-nod_net = nod_net
 
 nod_net = nod_net
 
@@ -61,6 +59,7 @@ if not os.path.exists(bbox_result_path):
 split_comber = SplitComb(config1['sidelen'],config1['max_stride'],config1['stride'],config1['margin'],pad_value= config1['pad_value'])
 
 dataset = DataBowl3Detector(config['testsplit'],config1,phase='test',split_comber=split_comber)
+
 test_loader = DataLoader(dataset, batch_size = 1,
     shuffle = False, num_workers = 0, pin_memory=False, collate_fn =collate)
 

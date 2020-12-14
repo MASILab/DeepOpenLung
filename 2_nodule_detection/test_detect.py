@@ -14,20 +14,22 @@ from torch import optim
 from torch.autograd import Variable
 
 from layers import acc
+import pdb
 
 def f(net,input,inputcoord,outputlist):
     output = net(input,inputcoord)
     outputlist.append(output.data.cpu().numpy())
 
 def test_detect(data_loader, net, get_pbb, save_dir, config,n_gpu = 1):
+    device = torch.device('cuda' if torch.cuda.is_available() and config['gpu'] else 'cpu')
     start_time = time.time()
     net.eval()
     split_comber = data_loader.dataset.split_comber
     with torch.no_grad():
         for i_name, (data, target, coord, nzhw) in enumerate(data_loader):
-    #         if (i_name <= 1927):
-    #             print (i_name)
-    #             continue
+            
+            
+            net = net.to(device)
             s = time.time()
             target = [np.asarray(t, np.float32) for t in target]
             lbb = target[0]
@@ -39,6 +41,7 @@ def test_detect(data_loader, net, get_pbb, save_dir, config,n_gpu = 1):
             shortname = name.split('_clean')[0]
             data = data[0][0]
             coord = coord[0][0]
+            data, coord = data.to(device), coord.to(device)
             isfeat = False
             if 'output_feature' in config:
                 if config['output_feature']:

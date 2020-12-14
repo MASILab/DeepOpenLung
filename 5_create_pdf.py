@@ -9,8 +9,6 @@ import pandas as pd
 
 parser = argparse.ArgumentParser()
 
-
-
 parser.add_argument('--save_csv_path', type=str, default='/nfs/masi/gaor2/tmp/justtest/prep',
                     help='the root for save result data')
 
