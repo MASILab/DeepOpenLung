@@ -52,9 +52,17 @@ INPUTS / OUTPUTS / config.yaml example can be downloaded from: https://vanderbil
 
 Example command line: 
 
-(1)For NIfTI: 
+Note: there is a variable 'gpu' in config.yaml. set 'gpu' as 'True' in GPU version, 'gpu' as 'False' in CPU version. 
+
+(1)For NIfTI-cpu: 
 > sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml deeplung:0.7 sh run_all.sh  
 
-(2) For DICOM: 
+(2) For DICOM-cpu: 
 > sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml deeplung:0.7 sh run_all_DICOM.sh 
+
+(3) GPU-nifti: 
+> sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml deeplunggpu:0.2 sh run_all.sh
+
+(4) GPU-DICOM: 
+> sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml deeplunggpu:0.2 sh run_all_DICOM.sh
 
