@@ -59,6 +59,9 @@ RUN conda install -c conda-forge nibabel
 RUN conda install -c anaconda scikit-image
 #RUN conda install -c conda-forge importlib
 
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir pypdf2 pymupdf
+
 COPY . .
 
 # Set the default command to python3
