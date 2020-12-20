@@ -28,6 +28,7 @@ detect:
   'gpu': False
 
 
+
 cls:
   'topk': 5
   'resample': None
@@ -55,3 +56,4 @@ cls:
   'miss_thresh': 0.03
   'anchors': [10,30,60]
   'gpu': False
+
