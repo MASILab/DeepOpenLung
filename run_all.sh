@@ -22,7 +22,7 @@ mkdir -p ${BBOX_ROOT}
 mkdir -p ${FEAT_ROOT}
 
 ORI_ROOT=${IN_ROOT}/NIfTI
-SPLIT_CSV=${IN_ROOT}/SUBINFO/test.csv
+SPLIT_CSV=${IN_ROOT}/SUBINFO/test_nifti.csv
 
 echo "Run step 1 data preprocessing ..."
 

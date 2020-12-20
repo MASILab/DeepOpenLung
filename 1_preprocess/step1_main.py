@@ -132,7 +132,7 @@ if __name__ == '__main__':
                         help='the root of original data')
     args = parser.parse_args()
     
-    sess_splits = pd.read_csv(args.sess_csv)['id'].tolist()
+    sess_splits = pd.read_csv(args.sess_csv)['exam_id'].tolist()
     
     for i in range(len(sess_splits)):
         sess_id = sess_splits[i]

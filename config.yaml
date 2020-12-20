@@ -25,6 +25,7 @@ detect:
   'lr_stage': [50,100,120]
   'lr': [0.01,0.001,0.0001]
   'blacklist': []
+  'gpu': False
 
 
 cls:
@@ -53,3 +54,4 @@ cls:
   'miss_ratio': 1
   'miss_thresh': 0.03
   'anchors': [10,30,60]
+  'gpu': False

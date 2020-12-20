@@ -50,7 +50,7 @@ config2['datadir'] = args.prep_root
 config2['feat128_root'] = args.feat_root
 
 
-sess_splits = pd.read_csv(args.sess_csv)['id'].tolist()
+sess_splits = pd.read_csv(args.sess_csv)['exam_id'].tolist()
 testsplit = sess_splits
 
 def test_casenet(model,testset):

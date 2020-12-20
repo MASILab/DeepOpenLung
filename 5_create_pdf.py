@@ -34,7 +34,7 @@ with Path("./blank.pdf").open(mode="wb") as output_file:
     pdf_writer.write(output_file)
 
 for i, item in df.iterrows():
-    tmp_id = item['id']
+    tmp_id = item['exam_id']
     prob = item['pred']
     f.write(tmp_id + ' predicted as: ' + str(prob > 0.2) + ' cancer \n')
     
@@ -50,7 +50,7 @@ for i, item in df.iterrows():
     # add the image
     first_page.insertImage(image_rectangle, pixmap=pix)
     
-    text = "predicted iscancer: "  + str(prob > 0.2)
+    text = "predicted cancer likelihood: {:.4f}".format(prob)
 
     where = fitz.Point(10, 220)    # text starts here
     # this inserts 2 lines of text using font `DejaVu Sans Mono`

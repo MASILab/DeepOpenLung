@@ -41,7 +41,7 @@ config = cfig['detect']
 
 config['datadir'] = args.prep_root
 
-sess_splits = pd.read_csv(args.sess_csv)['id'].tolist()
+sess_splits = pd.read_csv(args.sess_csv)['exam_id'].tolist()
 config['testsplit'] = sess_splits
 nodmodel = import_module('net_detector')
 config1, nod_net, loss, get_pbb = nodmodel.get_model()
