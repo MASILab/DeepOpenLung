@@ -15,7 +15,7 @@ All the steps can be find in run_all.sh. A INPUTS and OUTPUTS example can be fou
 
 ## step 1: image pre-process
 
-> python3 ./1_preprocess/step1_main.py --sess_csv ${SPLIT_CSV} --prep_root ${PREP_ROOT} --ori_root ${ORI_ROOT} 
+> python3 ./1_preprocess/step1_main.py --sess_csv ${SPLIT_CSV} --prep_root ${PREP_ROOT} --ori_root ${ORI_ROOT}
 
 ```${SPLIT_CSV}``` is the csv file stores the scan list (and meta data) you want to test. 
 ```${PREP_ROOT}``` is the data folder saves the pre-processed result.
@@ -23,14 +23,15 @@ All the steps can be find in run_all.sh. A INPUTS and OUTPUTS example can be fou
 
 ## step 2: nodule detection
 
-> python3 ./2_nodule_detection/step2_main.py --sess_csv ${SPLIT_CSV} --bbox_root ${BBOX_ROOT} --prep_root ${PREP_ROOT} 
+> python3 ./2_nodule_detection/step2_main.py --sess_csv ${SPLIT_CSV} --bbox_root ${BBOX_ROOT} --prep_root ${PREP_ROOT} --config ${CONFIG_PATH} 
 
 ```${BBOX_ROOT}``` is the data folder stores the nodule detection results.
+```${CONFIG_PATH}``` is the config file path.
 
 
 ## step 3: feature extraction
 
-> python3 ./3_feature_extraction/step3_main.py --sess_csv ${SPLIT_CSV} --bbox_root ${BBOX_ROOT} --prep_root ${PREP_ROOT} --feat_root ${FEAT_ROOT}
+> python3 ./3_feature_extraction/step3_main.py --sess_csv ${SPLIT_CSV} --bbox_root ${BBOX_ROOT} --prep_root ${PREP_ROOT} --feat_root ${FEAT_ROOT} --config ${CONFIG_PATH}
 
 ```${FEAT_ROOT}``` is the data folder stores the image feature results.
 
@@ -43,23 +44,29 @@ All the steps can be find in run_all.sh. A INPUTS and OUTPUTS example can be fou
 
 ```${PRED_CSV}``` is the predicted result from deep learning method.
 
+## step 5: create pdf report
+
+> python3 ./5_create_pdf.py --save_csv_path ${PRED_CSV} --save_txt_path ${CLS_TXT} --save_prep_path ${PREP_ROOT} --save_pdf_path ${PDF_ROOT}
+
 
 # Docker
 
-Docker image can be downloaded from docker hub:  rg15/deeplunggpu:0.3 (fit for both gpu and cpu)
+Docker image can be downloaded from docker hub: rg15/deeplunggpu:0.3 (built from Docker.gpu), rg15/deeplungcpu:0.2 (built from Docker.gpu)
 
 INPUTS / OUTPUTS / config.yaml example can be downloaded from: 
 https://vanderbilt.box.com/s/6h6388kw6h4jbjogd8yk1xqp9eotd3tv
+
+the example .csv file report can be found at OUPUTS/Metrics/CSV
 
 Example command line: 
 
 Note: there is a variable 'gpu' in config.yaml. set 'gpu' as 'True' in GPU version, 'gpu' as 'False' in CPU version. 
 
 (1)For NIfTI-cpu: 
-> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplunggpu:0.3 sh run_all.sh  
+> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplungcpu:0.2 sh run_all.sh  
 
 (2) For DICOM-cpu: 
-> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplunggpu:0.3 sh run_all_DICOM.sh 
+> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplungcpu:0.2 sh run_all_DICOM.sh 
 
 (3) GPU-nifti: 
 > sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplunggpu:0.3 sh run_all.sh
