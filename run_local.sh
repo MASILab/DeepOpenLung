@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# for debug 
+
 python3 ./Tools/DCM2NII.py --sess_root ../DeepOpenLungData/INPUTS/DICOM --nifti_root ../DeepOpenLungData/INPUTS/NIfTI --sess_csv ../DeepOpenLungData/INPUTS/SUBINFO/test_dcm.csv
 
 

@@ -74,3 +74,7 @@ Note: there is a variable 'gpu' in config.yaml. set 'gpu' as 'True' in GPU versi
 (4) GPU-DICOM: 
 > sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplunggpu:0.3 sh run_all_DICOM.sh
 
+(5) NIFTI-cpu (saving log): 
+
+> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplungcpu:0.2 sh run_all.sh | & tee {save_log_path}
+
