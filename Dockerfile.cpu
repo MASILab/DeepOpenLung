@@ -17,7 +17,6 @@ RUN mkdir /app
 WORKDIR /app
 
 RUN mkdir /INPUTS
-
 RUN mkdir /OUTPUTS
 
 RUN chmod 777 /INPUTS
@@ -36,12 +35,12 @@ RUN chmod 777 /home/user
 # Install Miniconda and Python 3.6
 ENV CONDA_AUTO_UPDATE_CONDA=false
 ENV PATH=/home/user/miniconda/bin:$PATH
-RUN curl -sLo ~/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh \
- && chmod +x ~/miniconda.sh \
- && ~/miniconda.sh -b -p ~/miniconda \
- && rm ~/miniconda.sh \
- && conda install -y python==3.6.9 \
- && conda clean -ya
+RUN curl -sLo ~/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh 
+RUN chmod +x ~/miniconda.sh 
+RUN ~/miniconda.sh -b -p ~/miniconda 
+RUN rm ~/miniconda.sh 
+RUN conda install -y python==3.6.9 
+RUN conda clean -ya
 
 # No CUDA-specific steps
 ENV NO_CUDA=1
@@ -49,7 +48,7 @@ RUN conda install -y -c pytorch \
     cpuonly \
     "pytorch=1.4.0=py3.6_cpu_0" \
     "torchvision=0.5.0=py36_cpu" \
- && conda clean -ya
+     && conda clean -ya
 
 RUN conda install pandas
 RUN conda install numpy
@@ -57,10 +56,10 @@ RUN conda install pyyaml
 RUN conda install -c anaconda scipy
 RUN conda install -c conda-forge nibabel
 RUN conda install -c anaconda scikit-image
-#RUN conda install -c conda-forge importlib
+####RUN conda install -c conda-forge importlib
 
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir pypdf2 pymupdf
+RUN pip install --upgrade pip 
+RUN pip install --no-cache-dir pypdf2 pymupdf
 
 COPY . .
 
