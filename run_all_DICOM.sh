@@ -1,8 +1,8 @@
 #!/bin/bash
 
-IN_ROOT=/INPUTS
-OUT_ROOT=/OUTPUTS
-CONFIG_PATH=/config.yaml
+IN_ROOT=$(readlink -f ${1-/INPUTS}) #/INPUTS
+OUT_ROOT=$(readlink -f ${2-/OUTPUTS}) # /OUTPUTS
+CONFIG_PATH=$(readlink -f ${3-/config.yaml}) # /config.yaml
 
 PREP_ROOT=${OUT_ROOT}/temp/prep
 BBOX_ROOT=${OUT_ROOT}/temp/bbox

@@ -1,0 +1,1424 @@
+gaor2@masi-21:~/code/DeepOpenLung$ sudo docker build --no-cache --tag deeplungcpuv2:0.1 .
+Sending build context to Docker daemon  87.07MB
+Step 1/27 : FROM ubuntu:16.04
+ ---> dfeff22e96ae
+Step 2/27 : RUN apt-get update && apt-get install -y     curl     ca-certificates     sudo     git     bzip2     libx11-6     vim  && rm -rf /var/lib/apt/lists/*
+ ---> Running in 7d0628a97265
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [109 kB]
+Get:2 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+Get:3 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [1875 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [15.9 kB]
+Get:5 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [978 kB]
+Get:6 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
+Get:7 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [9252 B]
+Get:8 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
+Get:9 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]
+Get:10 http://archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages [14.1 kB]
+Get:11 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [9827 kB]
+Get:12 http://archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [176 kB]
+Get:13 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [2387 kB]
+Get:14 http://archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages [16.4 kB]
+Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [1530 kB]
+Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [26.8 kB]
+Get:17 http://archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [10.9 kB]
+Get:18 http://archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [12.6 kB]
+Fetched 19.0 MB in 2s (6741 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  file git-man ifupdown iproute2 isc-dhcp-client isc-dhcp-common krb5-locales
+  less libasn1-8-heimdal libatm1 libbsd0 libcurl3-gnutls libdns-export162
+  libedit2 liberror-perl libexpat1 libffi6 libgdbm3 libgmp10 libgnutls30
+  libgpm2 libgssapi-krb5-2 libgssapi3-heimdal libhcrypto4-heimdal
+  libheimbase1-heimdal libheimntlm0-heimdal libhogweed4 libhx509-5-heimdal
+  libidn11 libisc-export160 libk5crypto3 libkeyutils1 libkrb5-26-heimdal
+  libkrb5-3 libkrb5support0 libldap-2.4-2 libmagic1 libmnl0 libmpdec2
+  libnettle6 libp11-kit0 libperl5.22 libpopt0 libpython3.5
+  libpython3.5-minimal libpython3.5-stdlib libroken18-heimdal librtmp1
+  libsasl2-2 libsasl2-modules libsasl2-modules-db libsqlite3-0 libssl1.0.0
+  libtasn1-6 libwind0-heimdal libx11-data libxau6 libxcb1 libxdmcp6 libxext6
+  libxmuu1 libxtables11 mime-support netbase openssh-client openssl patch perl
+  perl-base perl-modules-5.22 rename rsync vim-common vim-runtime xauth
+Suggested packages:
+  bzip2-doc gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-el
+  git-email git-gui gitk gitweb git-arch git-cvs git-mediawiki git-svn ppp
+  rdnssd iproute2-doc resolvconf avahi-autoipd isc-dhcp-client-ddns apparmor
+  gnutls-bin gpm krb5-doc krb5-user libsasl2-modules-otp libsasl2-modules-ldap
+  libsasl2-modules-sql libsasl2-modules-gssapi-mit
+  | libsasl2-modules-gssapi-heimdal ssh-askpass libpam-ssh keychain
+  monkeysphere ed diffutils-doc perl-doc libterm-readline-gnu-perl
+  | libterm-readline-perl-perl make openssh-server ctags vim-doc vim-scripts
+  vim-gnome-py2 | vim-gtk-py2 | vim-gtk3-py2 | vim-athena-py2 | vim-nox-py2
+The following NEW packages will be installed:
+  bzip2 ca-certificates curl file git git-man ifupdown iproute2
+  isc-dhcp-client isc-dhcp-common krb5-locales less libasn1-8-heimdal libatm1
+  libbsd0 libcurl3-gnutls libdns-export162 libedit2 liberror-perl libexpat1
+  libffi6 libgdbm3 libgmp10 libgnutls30 libgpm2 libgssapi-krb5-2
+  libgssapi3-heimdal libhcrypto4-heimdal libheimbase1-heimdal
+  libheimntlm0-heimdal libhogweed4 libhx509-5-heimdal libidn11
+  libisc-export160 libk5crypto3 libkeyutils1 libkrb5-26-heimdal libkrb5-3
+  libkrb5support0 libldap-2.4-2 libmagic1 libmnl0 libmpdec2 libnettle6
+  libp11-kit0 libperl5.22 libpopt0 libpython3.5 libpython3.5-minimal
+  libpython3.5-stdlib libroken18-heimdal librtmp1 libsasl2-2 libsasl2-modules
+  libsasl2-modules-db libsqlite3-0 libssl1.0.0 libtasn1-6 libwind0-heimdal
+  libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1
+  libxtables11 mime-support netbase openssh-client openssl patch perl
+  perl-modules-5.22 rename rsync sudo vim vim-common vim-runtime xauth
+The following packages will be upgraded:
+  perl-base
+1 upgraded, 81 newly installed, 0 to remove and 2 not upgraded.
+Need to get 31.9 MB of archives.
+After this operation, 154 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 perl-base amd64 5.22.1-9ubuntu0.9 [1287 kB]
+Get:2 http://archive.ubuntu.com/ubuntu xenial/main amd64 libatm1 amd64 1:2.5.1-1.5 [24.2 kB]
+Get:3 http://archive.ubuntu.com/ubuntu xenial/main amd64 libmnl0 amd64 1.0.3-5 [12.0 kB]
+Get:4 http://archive.ubuntu.com/ubuntu xenial/main amd64 libpopt0 amd64 1.16-10 [26.0 kB]
+Get:5 http://archive.ubuntu.com/ubuntu xenial/main amd64 libgdbm3 amd64 1.8.3-13.1 [16.9 kB]
+Get:6 http://archive.ubuntu.com/ubuntu xenial/main amd64 libxau6 amd64 1:1.0.8-1 [8376 B]
+Get:7 http://archive.ubuntu.com/ubuntu xenial/main amd64 libxdmcp6 amd64 1:1.1.2-1.1 [11.0 kB]
+Get:8 http://archive.ubuntu.com/ubuntu xenial/main amd64 libxcb1 amd64 1.11.1-1ubuntu1 [40.0 kB]
+Get:9 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libx11-data all 2:1.6.3-1ubuntu2.2 [114 kB]
+Get:10 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libx11-6 amd64 2:1.6.3-1ubuntu2.2 [572 kB]
+Get:11 http://archive.ubuntu.com/ubuntu xenial/main amd64 libxext6 amd64 2:1.3.3-1 [29.4 kB]
+Get:12 http://archive.ubuntu.com/ubuntu xenial/main amd64 libgpm2 amd64 1.20.4-6.1 [16.5 kB]
+Get:13 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 perl-modules-5.22 all 5.22.1-9ubuntu0.9 [2634 kB]
+Get:14 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libperl5.22 amd64 5.22.1-9ubuntu0.9 [3360 kB]
+Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 perl amd64 5.22.1-9ubuntu0.9 [237 kB]
+Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 bzip2 amd64 1.0.6-8ubuntu0.2 [32.5 kB]
+Get:17 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libmagic1 amd64 1:5.25-2ubuntu1.4 [216 kB]
+Get:18 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 file amd64 1:5.25-2ubuntu1.4 [21.2 kB]
+Get:19 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 iproute2 amd64 4.3.0-1ubuntu3.16.04.5 [523 kB]
+Get:20 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 ifupdown amd64 0.8.10ubuntu1.4 [54.9 kB]
+Get:21 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libisc-export160 amd64 1:9.10.3.dfsg.P4-8ubuntu1.17 [153 kB]
+Get:22 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libdns-export162 amd64 1:9.10.3.dfsg.P4-8ubuntu1.17 [667 kB]
+Get:23 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 isc-dhcp-client amd64 4.3.3-5ubuntu12.10 [224 kB]
+Get:24 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 isc-dhcp-common amd64 4.3.3-5ubuntu12.10 [105 kB]
+Get:25 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 less amd64 481-2.1ubuntu0.2 [110 kB]
+Get:26 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libbsd0 amd64 0.8.2-1ubuntu0.1 [42.0 kB]
+Get:27 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libexpat1 amd64 2.1.0-7ubuntu0.16.04.5 [71.5 kB]
+Get:28 http://archive.ubuntu.com/ubuntu xenial/main amd64 libffi6 amd64 3.2.1-4 [17.8 kB]
+Get:29 http://archive.ubuntu.com/ubuntu xenial/main amd64 libgmp10 amd64 2:6.1.0+dfsg-2 [240 kB]
+Get:30 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libnettle6 amd64 3.2-1ubuntu0.16.04.1 [93.5 kB]
+Get:31 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libhogweed4 amd64 3.2-1ubuntu0.16.04.1 [136 kB]
+Get:32 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libidn11 amd64 1.32-3ubuntu1.2 [46.5 kB]
+Get:33 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libp11-kit0 amd64 0.23.2-5~ubuntu16.04.1 [105 kB]
+Get:34 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libtasn1-6 amd64 4.7-3ubuntu0.16.04.3 [43.5 kB]
+Get:35 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgnutls30 amd64 3.4.10-4ubuntu1.8 [548 kB]
+Get:36 http://archive.ubuntu.com/ubuntu xenial/main amd64 libmpdec2 amd64 2.4.2-1 [82.6 kB]
+Get:37 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libssl1.0.0 amd64 1.0.2g-1ubuntu4.18 [1087 kB]
+Get:38 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libpython3.5-minimal amd64 3.5.2-2ubuntu0~16.04.12 [524 kB]
+Get:39 http://archive.ubuntu.com/ubuntu xenial/main amd64 mime-support all 3.59ubuntu1 [31.0 kB]
+Get:40 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libsqlite3-0 amd64 3.11.0-1ubuntu1.5 [398 kB]
+Get:41 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libpython3.5-stdlib amd64 3.5.2-2ubuntu0~16.04.12 [2131 kB]
+Get:42 http://archive.ubuntu.com/ubuntu xenial/main amd64 libxtables11 amd64 1.6.0-2ubuntu3 [27.2 kB]
+Get:43 http://archive.ubuntu.com/ubuntu xenial/main amd64 netbase all 5.3 [12.9 kB]
+Get:44 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 sudo amd64 1.8.16-0ubuntu1.9 [390 kB]
+Get:45 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 vim-common amd64 2:7.4.1689-3ubuntu1.5 [104 kB]
+Get:46 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 openssl amd64 1.0.2g-1ubuntu4.18 [492 kB]
+Get:47 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 ca-certificates all 20201027ubuntu0.16.04.1 [155 kB]
+Get:48 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 krb5-locales all 1.13.2+dfsg-5ubuntu2.2 [13.7 kB]
+Get:49 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libroken18-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [41.4 kB]
+Get:50 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libasn1-8-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [174 kB]
+Get:51 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libkrb5support0 amd64 1.13.2+dfsg-5ubuntu2.2 [31.2 kB]
+Get:52 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libk5crypto3 amd64 1.13.2+dfsg-5ubuntu2.2 [81.2 kB]
+Get:53 http://archive.ubuntu.com/ubuntu xenial/main amd64 libkeyutils1 amd64 1.5.9-8ubuntu1 [9904 B]
+Get:54 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libkrb5-3 amd64 1.13.2+dfsg-5ubuntu2.2 [273 kB]
+Get:55 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgssapi-krb5-2 amd64 1.13.2+dfsg-5ubuntu2.2 [120 kB]
+Get:56 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libhcrypto4-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [85.0 kB]
+Get:57 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libheimbase1-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [29.3 kB]
+Get:58 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libwind0-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [47.8 kB]
+Get:59 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libhx509-5-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [107 kB]
+Get:60 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libkrb5-26-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [202 kB]
+Get:61 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libheimntlm0-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [15.1 kB]
+Get:62 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgssapi3-heimdal amd64 1.7~git20150920+dfsg-4ubuntu1.16.04.1 [96.1 kB]
+Get:63 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libsasl2-modules-db amd64 2.1.26.dfsg1-14ubuntu0.2 [14.5 kB]
+Get:64 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libsasl2-2 amd64 2.1.26.dfsg1-14ubuntu0.2 [48.7 kB]
+Get:65 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libldap-2.4-2 amd64 2.4.42+dfsg-2ubuntu3.11 [159 kB]
+Get:66 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d-1ubuntu0.1 [54.4 kB]
+Get:67 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libcurl3-gnutls amd64 7.47.0-1ubuntu2.18 [184 kB]
+Get:68 http://archive.ubuntu.com/ubuntu xenial/main amd64 libedit2 amd64 3.1-20150325-1ubuntu2 [76.5 kB]
+Get:69 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libsasl2-modules amd64 2.1.26.dfsg1-14ubuntu0.2 [47.7 kB]
+Get:70 http://archive.ubuntu.com/ubuntu xenial/main amd64 libxmuu1 amd64 2:1.1.2-2 [9674 B]
+Get:71 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 openssh-client amd64 1:7.2p2-4ubuntu2.10 [590 kB]
+Get:72 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 rsync amd64 3.1.1-3ubuntu1.3 [329 kB]
+Get:73 http://archive.ubuntu.com/ubuntu xenial/main amd64 xauth amd64 1:1.0.9-1ubuntu2 [22.7 kB]
+Get:74 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 curl amd64 7.47.0-1ubuntu2.18 [139 kB]
+Get:75 http://archive.ubuntu.com/ubuntu xenial/main amd64 liberror-perl all 0.17-1.2 [19.6 kB]
+Get:76 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 git-man all 1:2.7.4-0ubuntu1.9 [736 kB]
+Get:77 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 git amd64 1:2.7.4-0ubuntu1.9 [3176 kB]
+Get:78 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libpython3.5 amd64 3.5.2-2ubuntu0~16.04.12 [1360 kB]
+Get:79 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 patch amd64 2.7.5-1ubuntu0.16.04.2 [90.8 kB]
+Get:80 http://archive.ubuntu.com/ubuntu xenial/main amd64 rename all 0.20-4 [12.0 kB]
+Get:81 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 vim-runtime all 2:7.4.1689-3ubuntu1.5 [5169 kB]
+Get:82 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 vim amd64 2:7.4.1689-3ubuntu1.5 [1036 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 31.9 MB in 3s (10.1 MB/s)
+(Reading database ... 4780 files and directories currently installed.)
+Preparing to unpack .../perl-base_5.22.1-9ubuntu0.9_amd64.deb ...
+Unpacking perl-base (5.22.1-9ubuntu0.9) over (5.22.1-9ubuntu0.6) ...
+Setting up perl-base (5.22.1-9ubuntu0.9) ...
+Selecting previously unselected package libatm1:amd64.
+(Reading database ... 4780 files and directories currently installed.)
+Preparing to unpack .../libatm1_1%3a2.5.1-1.5_amd64.deb ...
+Unpacking libatm1:amd64 (1:2.5.1-1.5) ...
+Selecting previously unselected package libmnl0:amd64.
+Preparing to unpack .../libmnl0_1.0.3-5_amd64.deb ...
+Unpacking libmnl0:amd64 (1.0.3-5) ...
+Selecting previously unselected package libpopt0:amd64.
+Preparing to unpack .../libpopt0_1.16-10_amd64.deb ...
+Unpacking libpopt0:amd64 (1.16-10) ...
+Selecting previously unselected package libgdbm3:amd64.
+Preparing to unpack .../libgdbm3_1.8.3-13.1_amd64.deb ...
+Unpacking libgdbm3:amd64 (1.8.3-13.1) ...
+Selecting previously unselected package libxau6:amd64.
+Preparing to unpack .../libxau6_1%3a1.0.8-1_amd64.deb ...
+Unpacking libxau6:amd64 (1:1.0.8-1) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Preparing to unpack .../libxdmcp6_1%3a1.1.2-1.1_amd64.deb ...
+Unpacking libxdmcp6:amd64 (1:1.1.2-1.1) ...
+Selecting previously unselected package libxcb1:amd64.
+Preparing to unpack .../libxcb1_1.11.1-1ubuntu1_amd64.deb ...
+Unpacking libxcb1:amd64 (1.11.1-1ubuntu1) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../libx11-data_2%3a1.6.3-1ubuntu2.2_all.deb ...
+Unpacking libx11-data (2:1.6.3-1ubuntu2.2) ...
+Selecting previously unselected package libx11-6:amd64.
+Preparing to unpack .../libx11-6_2%3a1.6.3-1ubuntu2.2_amd64.deb ...
+Unpacking libx11-6:amd64 (2:1.6.3-1ubuntu2.2) ...
+Selecting previously unselected package libxext6:amd64.
+Preparing to unpack .../libxext6_2%3a1.3.3-1_amd64.deb ...
+Unpacking libxext6:amd64 (2:1.3.3-1) ...
+Selecting previously unselected package libgpm2:amd64.
+Preparing to unpack .../libgpm2_1.20.4-6.1_amd64.deb ...
+Unpacking libgpm2:amd64 (1.20.4-6.1) ...
+Selecting previously unselected package perl-modules-5.22.
+Preparing to unpack .../perl-modules-5.22_5.22.1-9ubuntu0.9_all.deb ...
+Unpacking perl-modules-5.22 (5.22.1-9ubuntu0.9) ...
+Selecting previously unselected package libperl5.22:amd64.
+Preparing to unpack .../libperl5.22_5.22.1-9ubuntu0.9_amd64.deb ...
+Unpacking libperl5.22:amd64 (5.22.1-9ubuntu0.9) ...
+Selecting previously unselected package perl.
+Preparing to unpack .../perl_5.22.1-9ubuntu0.9_amd64.deb ...
+Unpacking perl (5.22.1-9ubuntu0.9) ...
+Selecting previously unselected package bzip2.
+Preparing to unpack .../bzip2_1.0.6-8ubuntu0.2_amd64.deb ...
+Unpacking bzip2 (1.0.6-8ubuntu0.2) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../libmagic1_1%3a5.25-2ubuntu1.4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.25-2ubuntu1.4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../file_1%3a5.25-2ubuntu1.4_amd64.deb ...
+Unpacking file (1:5.25-2ubuntu1.4) ...
+Selecting previously unselected package iproute2.
+Preparing to unpack .../iproute2_4.3.0-1ubuntu3.16.04.5_amd64.deb ...
+Unpacking iproute2 (4.3.0-1ubuntu3.16.04.5) ...
+Selecting previously unselected package ifupdown.
+Preparing to unpack .../ifupdown_0.8.10ubuntu1.4_amd64.deb ...
+Unpacking ifupdown (0.8.10ubuntu1.4) ...
+Selecting previously unselected package libisc-export160.
+Preparing to unpack .../libisc-export160_1%3a9.10.3.dfsg.P4-8ubuntu1.17_amd64.deb ...
+Unpacking libisc-export160 (1:9.10.3.dfsg.P4-8ubuntu1.17) ...
+Selecting previously unselected package libdns-export162.
+Preparing to unpack .../libdns-export162_1%3a9.10.3.dfsg.P4-8ubuntu1.17_amd64.deb ...
+Unpacking libdns-export162 (1:9.10.3.dfsg.P4-8ubuntu1.17) ...
+Selecting previously unselected package isc-dhcp-client.
+Preparing to unpack .../isc-dhcp-client_4.3.3-5ubuntu12.10_amd64.deb ...
+Unpacking isc-dhcp-client (4.3.3-5ubuntu12.10) ...
+Selecting previously unselected package isc-dhcp-common.
+Preparing to unpack .../isc-dhcp-common_4.3.3-5ubuntu12.10_amd64.deb ...
+Unpacking isc-dhcp-common (4.3.3-5ubuntu12.10) ...
+Selecting previously unselected package less.
+Preparing to unpack .../less_481-2.1ubuntu0.2_amd64.deb ...
+Unpacking less (481-2.1ubuntu0.2) ...
+Selecting previously unselected package libbsd0:amd64.
+Preparing to unpack .../libbsd0_0.8.2-1ubuntu0.1_amd64.deb ...
+Unpacking libbsd0:amd64 (0.8.2-1ubuntu0.1) ...
+Selecting previously unselected package libexpat1:amd64.
+Preparing to unpack .../libexpat1_2.1.0-7ubuntu0.16.04.5_amd64.deb ...
+Unpacking libexpat1:amd64 (2.1.0-7ubuntu0.16.04.5) ...
+Selecting previously unselected package libffi6:amd64.
+Preparing to unpack .../libffi6_3.2.1-4_amd64.deb ...
+Unpacking libffi6:amd64 (3.2.1-4) ...
+Selecting previously unselected package libgmp10:amd64.
+Preparing to unpack .../libgmp10_2%3a6.1.0+dfsg-2_amd64.deb ...
+Unpacking libgmp10:amd64 (2:6.1.0+dfsg-2) ...
+Selecting previously unselected package libnettle6:amd64.
+Preparing to unpack .../libnettle6_3.2-1ubuntu0.16.04.1_amd64.deb ...
+Unpacking libnettle6:amd64 (3.2-1ubuntu0.16.04.1) ...
+Selecting previously unselected package libhogweed4:amd64.
+Preparing to unpack .../libhogweed4_3.2-1ubuntu0.16.04.1_amd64.deb ...
+Unpacking libhogweed4:amd64 (3.2-1ubuntu0.16.04.1) ...
+Selecting previously unselected package libidn11:amd64.
+Preparing to unpack .../libidn11_1.32-3ubuntu1.2_amd64.deb ...
+Unpacking libidn11:amd64 (1.32-3ubuntu1.2) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Preparing to unpack .../libp11-kit0_0.23.2-5~ubuntu16.04.1_amd64.deb ...
+Unpacking libp11-kit0:amd64 (0.23.2-5~ubuntu16.04.1) ...
+Selecting previously unselected package libtasn1-6:amd64.
+Preparing to unpack .../libtasn1-6_4.7-3ubuntu0.16.04.3_amd64.deb ...
+Unpacking libtasn1-6:amd64 (4.7-3ubuntu0.16.04.3) ...
+Selecting previously unselected package libgnutls30:amd64.
+Preparing to unpack .../libgnutls30_3.4.10-4ubuntu1.8_amd64.deb ...
+Unpacking libgnutls30:amd64 (3.4.10-4ubuntu1.8) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../libmpdec2_2.4.2-1_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-1) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Preparing to unpack .../libssl1.0.0_1.0.2g-1ubuntu4.18_amd64.deb ...
+Unpacking libssl1.0.0:amd64 (1.0.2g-1ubuntu4.18) ...
+Selecting previously unselected package libpython3.5-minimal:amd64.
+Preparing to unpack .../libpython3.5-minimal_3.5.2-2ubuntu0~16.04.12_amd64.deb ...
+Unpacking libpython3.5-minimal:amd64 (3.5.2-2ubuntu0~16.04.12) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../mime-support_3.59ubuntu1_all.deb ...
+Unpacking mime-support (3.59ubuntu1) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Preparing to unpack .../libsqlite3-0_3.11.0-1ubuntu1.5_amd64.deb ...
+Unpacking libsqlite3-0:amd64 (3.11.0-1ubuntu1.5) ...
+Selecting previously unselected package libpython3.5-stdlib:amd64.
+Preparing to unpack .../libpython3.5-stdlib_3.5.2-2ubuntu0~16.04.12_amd64.deb ...
+Unpacking libpython3.5-stdlib:amd64 (3.5.2-2ubuntu0~16.04.12) ...
+Selecting previously unselected package libxtables11:amd64.
+Preparing to unpack .../libxtables11_1.6.0-2ubuntu3_amd64.deb ...
+Unpacking libxtables11:amd64 (1.6.0-2ubuntu3) ...
+Selecting previously unselected package netbase.
+Preparing to unpack .../archives/netbase_5.3_all.deb ...
+Unpacking netbase (5.3) ...
+Selecting previously unselected package sudo.
+Preparing to unpack .../sudo_1.8.16-0ubuntu1.9_amd64.deb ...
+Unpacking sudo (1.8.16-0ubuntu1.9) ...
+Selecting previously unselected package vim-common.
+Preparing to unpack .../vim-common_2%3a7.4.1689-3ubuntu1.5_amd64.deb ...
+Unpacking vim-common (2:7.4.1689-3ubuntu1.5) ...
+Selecting previously unselected package openssl.
+Preparing to unpack .../openssl_1.0.2g-1ubuntu4.18_amd64.deb ...
+Unpacking openssl (1.0.2g-1ubuntu4.18) ...
+Selecting previously unselected package ca-certificates.
+Preparing to unpack .../ca-certificates_20201027ubuntu0.16.04.1_all.deb ...
+Unpacking ca-certificates (20201027ubuntu0.16.04.1) ...
+Selecting previously unselected package krb5-locales.
+Preparing to unpack .../krb5-locales_1.13.2+dfsg-5ubuntu2.2_all.deb ...
+Unpacking krb5-locales (1.13.2+dfsg-5ubuntu2.2) ...
+Selecting previously unselected package libroken18-heimdal:amd64.
+Preparing to unpack .../libroken18-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
+Unpacking libroken18-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Selecting previously unselected package libasn1-8-heimdal:amd64.
+Preparing to unpack .../libasn1-8-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
+Unpacking libasn1-8-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Preparing to unpack .../libkrb5support0_1.13.2+dfsg-5ubuntu2.2_amd64.deb ...
+Unpacking libkrb5support0:amd64 (1.13.2+dfsg-5ubuntu2.2) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Preparing to unpack .../libk5crypto3_1.13.2+dfsg-5ubuntu2.2_amd64.deb ...
+Unpacking libk5crypto3:amd64 (1.13.2+dfsg-5ubuntu2.2) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Preparing to unpack .../libkeyutils1_1.5.9-8ubuntu1_amd64.deb ...
+Unpacking libkeyutils1:amd64 (1.5.9-8ubuntu1) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Preparing to unpack .../libkrb5-3_1.13.2+dfsg-5ubuntu2.2_amd64.deb ...
+Unpacking libkrb5-3:amd64 (1.13.2+dfsg-5ubuntu2.2) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Preparing to unpack .../libgssapi-krb5-2_1.13.2+dfsg-5ubuntu2.2_amd64.deb ...
+Unpacking libgssapi-krb5-2:amd64 (1.13.2+dfsg-5ubuntu2.2) ...
+Selecting previously unselected package libhcrypto4-heimdal:amd64.
+Preparing to unpack .../libhcrypto4-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
+Unpacking libhcrypto4-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Selecting previously unselected package libheimbase1-heimdal:amd64.
+Preparing to unpack .../libheimbase1-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
+Unpacking libheimbase1-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Selecting previously unselected package libwind0-heimdal:amd64.
+Preparing to unpack .../libwind0-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
+Unpacking libwind0-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Selecting previously unselected package libhx509-5-heimdal:amd64.
+Preparing to unpack .../libhx509-5-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
+Unpacking libhx509-5-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Selecting previously unselected package libkrb5-26-heimdal:amd64.
+Preparing to unpack .../libkrb5-26-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
+Unpacking libkrb5-26-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Selecting previously unselected package libheimntlm0-heimdal:amd64.
+Preparing to unpack .../libheimntlm0-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
+Unpacking libheimntlm0-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Selecting previously unselected package libgssapi3-heimdal:amd64.
+Preparing to unpack .../libgssapi3-heimdal_1.7~git20150920+dfsg-4ubuntu1.16.04.1_amd64.deb ...
+Unpacking libgssapi3-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Selecting previously unselected package libsasl2-modules-db:amd64.
+Preparing to unpack .../libsasl2-modules-db_2.1.26.dfsg1-14ubuntu0.2_amd64.deb ...
+Unpacking libsasl2-modules-db:amd64 (2.1.26.dfsg1-14ubuntu0.2) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Preparing to unpack .../libsasl2-2_2.1.26.dfsg1-14ubuntu0.2_amd64.deb ...
+Unpacking libsasl2-2:amd64 (2.1.26.dfsg1-14ubuntu0.2) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Preparing to unpack .../libldap-2.4-2_2.4.42+dfsg-2ubuntu3.11_amd64.deb ...
+Unpacking libldap-2.4-2:amd64 (2.4.42+dfsg-2ubuntu3.11) ...
+Selecting previously unselected package librtmp1:amd64.
+Preparing to unpack .../librtmp1_2.4+20151223.gitfa8646d-1ubuntu0.1_amd64.deb ...
+Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d-1ubuntu0.1) ...
+Selecting previously unselected package libcurl3-gnutls:amd64.
+Preparing to unpack .../libcurl3-gnutls_7.47.0-1ubuntu2.18_amd64.deb ...
+Unpacking libcurl3-gnutls:amd64 (7.47.0-1ubuntu2.18) ...
+Selecting previously unselected package libedit2:amd64.
+Preparing to unpack .../libedit2_3.1-20150325-1ubuntu2_amd64.deb ...
+Unpacking libedit2:amd64 (3.1-20150325-1ubuntu2) ...
+Selecting previously unselected package libsasl2-modules:amd64.
+Preparing to unpack .../libsasl2-modules_2.1.26.dfsg1-14ubuntu0.2_amd64.deb ...
+Unpacking libsasl2-modules:amd64 (2.1.26.dfsg1-14ubuntu0.2) ...
+Selecting previously unselected package libxmuu1:amd64.
+Preparing to unpack .../libxmuu1_2%3a1.1.2-2_amd64.deb ...
+Unpacking libxmuu1:amd64 (2:1.1.2-2) ...
+Selecting previously unselected package openssh-client.
+Preparing to unpack .../openssh-client_1%3a7.2p2-4ubuntu2.10_amd64.deb ...
+Unpacking openssh-client (1:7.2p2-4ubuntu2.10) ...
+Selecting previously unselected package rsync.
+Preparing to unpack .../rsync_3.1.1-3ubuntu1.3_amd64.deb ...
+Unpacking rsync (3.1.1-3ubuntu1.3) ...
+Selecting previously unselected package xauth.
+Preparing to unpack .../xauth_1%3a1.0.9-1ubuntu2_amd64.deb ...
+Unpacking xauth (1:1.0.9-1ubuntu2) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../curl_7.47.0-1ubuntu2.18_amd64.deb ...
+Unpacking curl (7.47.0-1ubuntu2.18) ...
+Selecting previously unselected package liberror-perl.
+Preparing to unpack .../liberror-perl_0.17-1.2_all.deb ...
+Unpacking liberror-perl (0.17-1.2) ...
+Selecting previously unselected package git-man.
+Preparing to unpack .../git-man_1%3a2.7.4-0ubuntu1.9_all.deb ...
+Unpacking git-man (1:2.7.4-0ubuntu1.9) ...
+Selecting previously unselected package git.
+Preparing to unpack .../git_1%3a2.7.4-0ubuntu1.9_amd64.deb ...
+Unpacking git (1:2.7.4-0ubuntu1.9) ...
+Selecting previously unselected package libpython3.5:amd64.
+Preparing to unpack .../libpython3.5_3.5.2-2ubuntu0~16.04.12_amd64.deb ...
+Unpacking libpython3.5:amd64 (3.5.2-2ubuntu0~16.04.12) ...
+Selecting previously unselected package patch.
+Preparing to unpack .../patch_2.7.5-1ubuntu0.16.04.2_amd64.deb ...
+Unpacking patch (2.7.5-1ubuntu0.16.04.2) ...
+Selecting previously unselected package rename.
+Preparing to unpack .../archives/rename_0.20-4_all.deb ...
+Unpacking rename (0.20-4) ...
+Selecting previously unselected package vim-runtime.
+Preparing to unpack .../vim-runtime_2%3a7.4.1689-3ubuntu1.5_all.deb ...
+Adding 'diversion of /usr/share/vim/vim74/doc/help.txt to /usr/share/vim/vim74/doc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim74/doc/tags to /usr/share/vim/vim74/doc/tags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:7.4.1689-3ubuntu1.5) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../vim_2%3a7.4.1689-3ubuntu1.5_amd64.deb ...
+Unpacking vim (2:7.4.1689-3ubuntu1.5) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.2) ...
+Processing triggers for systemd (229-4ubuntu21.29) ...
+Setting up libatm1:amd64 (1:2.5.1-1.5) ...
+Setting up libmnl0:amd64 (1.0.3-5) ...
+Setting up libpopt0:amd64 (1.16-10) ...
+Setting up libgdbm3:amd64 (1.8.3-13.1) ...
+Setting up libxau6:amd64 (1:1.0.8-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.2-1.1) ...
+Setting up libxcb1:amd64 (1.11.1-1ubuntu1) ...
+Setting up libx11-data (2:1.6.3-1ubuntu2.2) ...
+Setting up libx11-6:amd64 (2:1.6.3-1ubuntu2.2) ...
+Setting up libxext6:amd64 (2:1.3.3-1) ...
+Setting up libgpm2:amd64 (1.20.4-6.1) ...
+Setting up perl-modules-5.22 (5.22.1-9ubuntu0.9) ...
+Setting up libperl5.22:amd64 (5.22.1-9ubuntu0.9) ...
+Setting up perl (5.22.1-9ubuntu0.9) ...
+update-alternatives: using /usr/bin/prename to provide /usr/bin/rename (rename) in auto mode
+Setting up bzip2 (1.0.6-8ubuntu0.2) ...
+Setting up libmagic1:amd64 (1:5.25-2ubuntu1.4) ...
+Setting up file (1:5.25-2ubuntu1.4) ...
+Setting up iproute2 (4.3.0-1ubuntu3.16.04.5) ...
+Setting up ifupdown (0.8.10ubuntu1.4) ...
+Creating /etc/network/interfaces.
+Setting up libisc-export160 (1:9.10.3.dfsg.P4-8ubuntu1.17) ...
+Setting up libdns-export162 (1:9.10.3.dfsg.P4-8ubuntu1.17) ...
+Setting up isc-dhcp-client (4.3.3-5ubuntu12.10) ...
+Setting up isc-dhcp-common (4.3.3-5ubuntu12.10) ...
+Setting up less (481-2.1ubuntu0.2) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+Setting up libbsd0:amd64 (0.8.2-1ubuntu0.1) ...
+Setting up libexpat1:amd64 (2.1.0-7ubuntu0.16.04.5) ...
+Setting up libffi6:amd64 (3.2.1-4) ...
+Setting up libgmp10:amd64 (2:6.1.0+dfsg-2) ...
+Setting up libnettle6:amd64 (3.2-1ubuntu0.16.04.1) ...
+Setting up libhogweed4:amd64 (3.2-1ubuntu0.16.04.1) ...
+Setting up libidn11:amd64 (1.32-3ubuntu1.2) ...
+Setting up libp11-kit0:amd64 (0.23.2-5~ubuntu16.04.1) ...
+Setting up libtasn1-6:amd64 (4.7-3ubuntu0.16.04.3) ...
+Setting up libgnutls30:amd64 (3.4.10-4ubuntu1.8) ...
+Setting up libmpdec2:amd64 (2.4.2-1) ...
+Setting up libssl1.0.0:amd64 (1.0.2g-1ubuntu4.18) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+Setting up libpython3.5-minimal:amd64 (3.5.2-2ubuntu0~16.04.12) ...
+Setting up mime-support (3.59ubuntu1) ...
+Setting up libsqlite3-0:amd64 (3.11.0-1ubuntu1.5) ...
+Setting up libpython3.5-stdlib:amd64 (3.5.2-2ubuntu0~16.04.12) ...
+Setting up libxtables11:amd64 (1.6.0-2ubuntu3) ...
+Setting up netbase (5.3) ...
+Setting up sudo (1.8.16-0ubuntu1.9) ...
+Setting up vim-common (2:7.4.1689-3ubuntu1.5) ...
+Setting up openssl (1.0.2g-1ubuntu4.18) ...
+Setting up ca-certificates (20201027ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+Setting up krb5-locales (1.13.2+dfsg-5ubuntu2.2) ...
+Setting up libroken18-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Setting up libasn1-8-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Setting up libkrb5support0:amd64 (1.13.2+dfsg-5ubuntu2.2) ...
+Setting up libk5crypto3:amd64 (1.13.2+dfsg-5ubuntu2.2) ...
+Setting up libkeyutils1:amd64 (1.5.9-8ubuntu1) ...
+Setting up libkrb5-3:amd64 (1.13.2+dfsg-5ubuntu2.2) ...
+Setting up libgssapi-krb5-2:amd64 (1.13.2+dfsg-5ubuntu2.2) ...
+Setting up libhcrypto4-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Setting up libheimbase1-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Setting up libwind0-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Setting up libhx509-5-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Setting up libkrb5-26-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Setting up libheimntlm0-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Setting up libgssapi3-heimdal:amd64 (1.7~git20150920+dfsg-4ubuntu1.16.04.1) ...
+Setting up libsasl2-modules-db:amd64 (2.1.26.dfsg1-14ubuntu0.2) ...
+Setting up libsasl2-2:amd64 (2.1.26.dfsg1-14ubuntu0.2) ...
+Setting up libldap-2.4-2:amd64 (2.4.42+dfsg-2ubuntu3.11) ...
+Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d-1ubuntu0.1) ...
+Setting up libcurl3-gnutls:amd64 (7.47.0-1ubuntu2.18) ...
+Setting up libedit2:amd64 (3.1-20150325-1ubuntu2) ...
+Setting up libsasl2-modules:amd64 (2.1.26.dfsg1-14ubuntu0.2) ...
+Setting up libxmuu1:amd64 (2:1.1.2-2) ...
+Setting up openssh-client (1:7.2p2-4ubuntu2.10) ...
+Setting up rsync (3.1.1-3ubuntu1.3) ...
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of restart.
+Setting up xauth (1:1.0.9-1ubuntu2) ...
+Setting up curl (7.47.0-1ubuntu2.18) ...
+Setting up liberror-perl (0.17-1.2) ...
+Setting up git-man (1:2.7.4-0ubuntu1.9) ...
+Setting up git (1:2.7.4-0ubuntu1.9) ...
+Setting up libpython3.5:amd64 (3.5.2-2ubuntu0~16.04.12) ...
+Setting up patch (2.7.5-1ubuntu0.16.04.2) ...
+Setting up rename (0.20-4) ...
+update-alternatives: using /usr/bin/file-rename to provide /usr/bin/rename (rename) in auto mode
+Setting up vim-runtime (2:7.4.1689-3ubuntu1.5) ...
+Setting up vim (2:7.4.1689-3ubuntu1.5) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
+Processing triggers for libc-bin (2.23-0ubuntu11.2) ...
+Processing triggers for systemd (229-4ubuntu21.29) ...
+Processing triggers for ca-certificates (20201027ubuntu0.16.04.1) ...
+Updating certificates in /etc/ssl/certs...
+138 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+Removing intermediate container 7d0628a97265
+ ---> 9b46ac92c0bf
+Step 3/27 : RUN mkdir /app
+ ---> Running in 96ce3d3af147
+Removing intermediate container 96ce3d3af147
+ ---> 8e465f5a653e
+Step 4/27 : WORKDIR /app
+ ---> Running in 5ae24432e449
+Removing intermediate container 5ae24432e449
+ ---> edbac12e2ebc
+Step 5/27 : RUN mkdir /INPUTS
+ ---> Running in 664b8f5f2437
+Removing intermediate container 664b8f5f2437
+ ---> 472c33d004ac
+Step 6/27 : RUN mkdir /OUTPUTS
+ ---> Running in 4b9cf2dd1100
+Removing intermediate container 4b9cf2dd1100
+ ---> 6d054c060916
+Step 7/27 : RUN chmod 777 /INPUTS
+ ---> Running in fdab74f054be
+Removing intermediate container fdab74f054be
+ ---> a36230173379
+Step 8/27 : RUN chmod 777 /OUTPUTS
+ ---> Running in ae5147944e6e
+Removing intermediate container ae5147944e6e
+ ---> 6a2e194aadd3
+Step 9/27 : RUN adduser --disabled-password --gecos '' --shell /bin/bash user  && chown -R user:user /app
+ ---> Running in 53a5618c942b
+Adding user `user' ...
+Adding new group `user' (1000) ...
+Adding new user `user' (1000) with group `user' ...
+Creating home directory `/home/user' ...
+Copying files from `/etc/skel' ...
+Removing intermediate container 53a5618c942b
+ ---> e5b02739bc7b
+Step 10/27 : RUN echo "user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-user
+ ---> Running in abe024c235a1
+Removing intermediate container abe024c235a1
+ ---> 064b78f0bbc4
+Step 11/27 : USER user
+ ---> Running in b794342c4491
+Removing intermediate container b794342c4491
+ ---> bd76d264093c
+Step 12/27 : ENV HOME=/home/user
+ ---> Running in b4e8657580d8
+Removing intermediate container b4e8657580d8
+ ---> 6b819f3fff8a
+Step 13/27 : RUN chmod 777 /home/user
+ ---> Running in 680e180259ca
+Removing intermediate container 680e180259ca
+ ---> 4c325d549162
+Step 14/27 : ENV CONDA_AUTO_UPDATE_CONDA=false
+ ---> Running in 692f037f1837
+Removing intermediate container 692f037f1837
+ ---> 11dd0acdd018
+Step 15/27 : ENV PATH=/home/user/miniconda/bin:$PATH
+ ---> Running in cb4caae4fbdf
+Removing intermediate container cb4caae4fbdf
+ ---> 3842c1c470c9
+Step 16/27 : RUN curl -sLo ~/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh  && chmod +x ~/miniconda.sh  && ~/miniconda.sh -b -p ~/miniconda  && rm ~/miniconda.sh  && conda install -y python==3.6.9  && conda clean -ya
+ ---> Running in ad3404f838fc
+PREFIX=/home/user/miniconda
+Unpacking payload ...
+Collecting package metadata (current_repodata.json): ...working... done                                        
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/user/miniconda
+
+  added / updated specs:
+    - _libgcc_mutex==0.1=main
+    - asn1crypto==1.2.0=py37_0
+    - ca-certificates==2019.10.16=0
+    - certifi==2019.9.11=py37_0
+    - cffi==1.13.0=py37h2e261b9_0
+    - chardet==3.0.4=py37_1003
+    - conda-package-handling==1.6.0=py37h7b6447c_0
+    - conda==4.7.12=py37_0
+    - cryptography==2.8=py37h1ba5d50_0
+    - idna==2.8=py37_0
+    - libedit==3.1.20181209=hc058e9b_0
+    - libffi==3.2.1=hd88cf55_4
+    - libgcc-ng==9.1.0=hdf63c60_0
+    - libstdcxx-ng==9.1.0=hdf63c60_0
+    - ncurses==6.1=he6710b0_1
+    - openssl==1.1.1d=h7b6447c_3
+    - pip==19.3.1=py37_0
+    - pycosat==0.6.3=py37h14c3975_0
+    - pycparser==2.19=py37_0
+    - pyopenssl==19.0.0=py37_0
+    - pysocks==1.7.1=py37_0
+    - python==3.7.4=h265db76_1
+    - readline==7.0=h7b6447c_5
+    - requests==2.22.0=py37_0
+    - ruamel_yaml==0.15.46=py37h14c3975_0
+    - setuptools==41.4.0=py37_0
+    - six==1.12.0=py37_0
+    - sqlite==3.30.0=h7b6447c_0
+    - tk==8.6.8=hbc83047_0
+    - tqdm==4.36.1=py_0
+    - urllib3==1.24.2=py37_0
+    - wheel==0.33.6=py37_0
+    - xz==5.2.4=h14c3975_4
+    - yaml==0.1.7=had09818_2
+    - zlib==1.2.11=h7b6447c_3
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  asn1crypto         pkgs/main/linux-64::asn1crypto-1.2.0-py37_0
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2019.10.16-0
+  certifi            pkgs/main/linux-64::certifi-2019.9.11-py37_0
+  cffi               pkgs/main/linux-64::cffi-1.13.0-py37h2e261b9_0
+  chardet            pkgs/main/linux-64::chardet-3.0.4-py37_1003
+  conda              pkgs/main/linux-64::conda-4.7.12-py37_0
+  conda-package-han~ pkgs/main/linux-64::conda-package-handling-1.6.0-py37h7b6447c_0
+  cryptography       pkgs/main/linux-64::cryptography-2.8-py37h1ba5d50_0
+  idna               pkgs/main/linux-64::idna-2.8-py37_0
+  libedit            pkgs/main/linux-64::libedit-3.1.20181209-hc058e9b_0
+  libffi             pkgs/main/linux-64::libffi-3.2.1-hd88cf55_4
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
+  ncurses            pkgs/main/linux-64::ncurses-6.1-he6710b0_1
+  openssl            pkgs/main/linux-64::openssl-1.1.1d-h7b6447c_3
+  pip                pkgs/main/linux-64::pip-19.3.1-py37_0
+  pycosat            pkgs/main/linux-64::pycosat-0.6.3-py37h14c3975_0
+  pycparser          pkgs/main/linux-64::pycparser-2.19-py37_0
+  pyopenssl          pkgs/main/linux-64::pyopenssl-19.0.0-py37_0
+  pysocks            pkgs/main/linux-64::pysocks-1.7.1-py37_0
+  python             pkgs/main/linux-64::python-3.7.4-h265db76_1
+  readline           pkgs/main/linux-64::readline-7.0-h7b6447c_5
+  requests           pkgs/main/linux-64::requests-2.22.0-py37_0
+  ruamel_yaml        pkgs/main/linux-64::ruamel_yaml-0.15.46-py37h14c3975_0
+  setuptools         pkgs/main/linux-64::setuptools-41.4.0-py37_0
+  six                pkgs/main/linux-64::six-1.12.0-py37_0
+  sqlite             pkgs/main/linux-64::sqlite-3.30.0-h7b6447c_0
+  tk                 pkgs/main/linux-64::tk-8.6.8-hbc83047_0
+  tqdm               pkgs/main/noarch::tqdm-4.36.1-py_0
+  urllib3            pkgs/main/linux-64::urllib3-1.24.2-py37_0
+  wheel              pkgs/main/linux-64::wheel-0.33.6-py37_0
+  xz                 pkgs/main/linux-64::xz-5.2.4-h14c3975_4
+  yaml               pkgs/main/linux-64::yaml-0.1.7-had09818_2
+  zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+
+
+Preparing transaction: ...working... done
+Executing transaction: ...working... done
+installation finished.
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... failed with initial frozen solve. Retrying with flexible solve.
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/user/miniconda
+
+  added / updated specs:
+    - python==3.6.9
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    brotlipy-0.7.0             |py36h27cfd23_1003         320 KB
+    ca-certificates-2020.12.8  |       h06a4308_0         121 KB
+    certifi-2020.12.5          |   py36h06a4308_0         140 KB
+    cffi-1.14.0                |   py36h2e261b9_0         223 KB
+    chardet-4.0.0              |py36h06a4308_1003         199 KB
+    conda-4.9.2                |   py36h06a4308_0         2.9 MB
+    conda-package-handling-1.7.2|   py36h03888b9_0         886 KB
+    cryptography-3.3.1         |   py36h3c74f83_0         557 KB
+    idna-2.10                  |             py_0          50 KB
+    openssl-1.1.1i             |       h27cfd23_0         2.5 MB
+    pip-20.3.3                 |   py36h06a4308_0         1.8 MB
+    pycosat-0.6.3              |   py36h27cfd23_0          82 KB
+    pycparser-2.20             |             py_2          94 KB
+    pyopenssl-20.0.1           |     pyhd3eb1b0_1          49 KB
+    pysocks-1.7.1              |   py36h06a4308_0          31 KB
+    python-3.6.9               |       h265db76_0        30.2 MB
+    requests-2.25.1            |     pyhd3eb1b0_0          52 KB
+    ruamel_yaml-0.15.87        |   py36h7b6447c_0         257 KB
+    setuptools-51.0.0          |   py36h06a4308_2         712 KB
+    six-1.15.0                 |   py36h06a4308_0          27 KB
+    urllib3-1.26.2             |     pyhd3eb1b0_0         105 KB
+    wheel-0.36.2               |     pyhd3eb1b0_0          33 KB
+    ------------------------------------------------------------
+                                           Total:        41.2 MB
+
+The following NEW packages will be INSTALLED:
+
+  brotlipy           pkgs/main/linux-64::brotlipy-0.7.0-py36h27cfd23_1003
+
+The following packages will be REMOVED:
+
+  asn1crypto-1.2.0-py37_0
+
+The following packages will be UPDATED:
+
+  ca-certificates                              2019.10.16-0 --> 2020.12.8-h06a4308_0
+  certifi                                  2019.9.11-py37_0 --> 2020.12.5-py36h06a4308_0
+  cffi                                1.13.0-py37h2e261b9_0 --> 1.14.0-py36h2e261b9_0
+  chardet                                   3.0.4-py37_1003 --> 4.0.0-py36h06a4308_1003
+  conda                                       4.7.12-py37_0 --> 4.9.2-py36h06a4308_0
+  conda-package-han~                   1.6.0-py37h7b6447c_0 --> 1.7.2-py36h03888b9_0
+  cryptography                           2.8-py37h1ba5d50_0 --> 3.3.1-py36h3c74f83_0
+  idna                  pkgs/main/linux-64::idna-2.8-py37_0 --> pkgs/main/noarch::idna-2.10-py_0
+  openssl                                 1.1.1d-h7b6447c_3 --> 1.1.1i-h27cfd23_0
+  pip                                         19.3.1-py37_0 --> 20.3.3-py36h06a4308_0
+  pycparser          pkgs/main/linux-64::pycparser-2.19-py~ --> pkgs/main/noarch::pycparser-2.20-py_2
+  pyopenssl          pkgs/main/linux-64::pyopenssl-19.0.0-~ --> pkgs/main/noarch::pyopenssl-20.0.1-pyhd3eb1b0_1
+  requests           pkgs/main/linux-64::requests-2.22.0-p~ --> pkgs/main/noarch::requests-2.25.1-pyhd3eb1b0_0
+  ruamel_yaml                        0.15.46-py37h14c3975_0 --> 0.15.87-py36h7b6447c_0
+  setuptools                                  41.4.0-py37_0 --> 51.0.0-py36h06a4308_2
+  six                                         1.12.0-py37_0 --> 1.15.0-py36h06a4308_0
+  urllib3            pkgs/main/linux-64::urllib3-1.24.2-py~ --> pkgs/main/noarch::urllib3-1.26.2-pyhd3eb1b0_0
+  wheel              pkgs/main/linux-64::wheel-0.33.6-py37~ --> pkgs/main/noarch::wheel-0.36.2-pyhd3eb1b0_0
+
+The following packages will be DOWNGRADED:
+
+  pycosat                              0.6.3-py37h14c3975_0 --> 0.6.3-py36h27cfd23_0
+  pysocks                                      1.7.1-py37_0 --> 1.7.1-py36h06a4308_0
+  python                                   3.7.4-h265db76_1 --> 3.6.9-h265db76_0
+
+
+
+Downloading and Extracting Packages
+setuptools-51.0.0    | 712 KB    | ########## | 100% 
+wheel-0.36.2         | 33 KB     | ########## | 100% 
+ca-certificates-2020 | 121 KB    | ########## | 100% 
+idna-2.10            | 50 KB     | ########## | 100% 
+conda-package-handli | 886 KB    | ########## | 100% 
+ruamel_yaml-0.15.87  | 257 KB    | ########## | 100% 
+requests-2.25.1      | 52 KB     | ########## | 100% 
+conda-4.9.2          | 2.9 MB    | ########## | 100% 
+pip-20.3.3           | 1.8 MB    | ########## | 100% 
+pyopenssl-20.0.1     | 49 KB     | ########## | 100% 
+pycosat-0.6.3        | 82 KB     | ########## | 100% 
+cffi-1.14.0          | 223 KB    | ########## | 100% 
+certifi-2020.12.5    | 140 KB    | ########## | 100% 
+cryptography-3.3.1   | 557 KB    | ########## | 100% 
+pysocks-1.7.1        | 31 KB     | ########## | 100% 
+six-1.15.0           | 27 KB     | ########## | 100% 
+python-3.6.9         | 30.2 MB   | ########## | 100% 
+pycparser-2.20       | 94 KB     | ########## | 100% 
+openssl-1.1.1i       | 2.5 MB    | ########## | 100% 
+brotlipy-0.7.0       | 320 KB    | ########## | 100% 
+chardet-4.0.0        | 199 KB    | ########## | 100% 
+urllib3-1.26.2       | 105 KB    | ########## | 100% 
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Cache location: /home/user/miniconda/pkgs
+Will remove the following tarballs:
+
+/home/user/miniconda/pkgs
+-------------------------
+libedit-3.1.20181209-hc058e9b_0.conda        163 KB
+readline-7.0-h7b6447c_5.conda                324 KB
+asn1crypto-1.2.0-py37_0.tar.bz2              162 KB
+libffi-3.2.1-hd88cf55_4.conda                 40 KB
+certifi-2019.9.11-py37_0.tar.bz2             154 KB
+openssl-1.1.1i-h27cfd23_0.conda              2.5 MB
+python-3.6.9-h265db76_0.conda               30.2 MB
+tk-8.6.8-hbc83047_0.conda                    2.8 MB
+requests-2.22.0-py37_0.conda                  90 KB
+six-1.12.0-py37_0.conda                       23 KB
+zlib-1.2.11-h7b6447c_3.conda                 103 KB
+_libgcc_mutex-0.1-main.conda                   3 KB
+pyopenssl-20.0.1-pyhd3eb1b0_1.conda           49 KB
+six-1.15.0-py36h06a4308_0.conda               27 KB
+ca-certificates-2019.10.16-0.tar.bz2         131 KB
+openssl-1.1.1d-h7b6447c_3.tar.bz2            3.7 MB
+pycosat-0.6.3-py36h27cfd23_0.conda            82 KB
+ncurses-6.1-he6710b0_1.conda                 777 KB
+cryptography-2.8-py37h1ba5d50_0.tar.bz2      612 KB
+cryptography-3.3.1-py36h3c74f83_0.conda      557 KB
+idna-2.8-py37_0.conda                         85 KB
+conda-package-handling-1.6.0-py37h7b6447c_0.conda     797 KB
+pycparser-2.20-py_2.conda                     94 KB
+chardet-3.0.4-py37_1003.conda                174 KB
+yaml-0.1.7-had09818_2.conda                   73 KB
+brotlipy-0.7.0-py36h27cfd23_1003.conda       320 KB
+setuptools-41.4.0-py37_0.tar.bz2             651 KB
+libgcc-ng-9.1.0-hdf63c60_0.conda             5.1 MB
+wheel-0.36.2-pyhd3eb1b0_0.conda               33 KB
+pycosat-0.6.3-py37h14c3975_0.conda            79 KB
+cffi-1.13.0-py37h2e261b9_0.tar.bz2           224 KB
+sqlite-3.30.0-h7b6447c_0.tar.bz2             1.9 MB
+conda-4.9.2-py36h06a4308_0.conda             2.9 MB
+pycparser-2.19-py37_0.conda                  171 KB
+pip-19.3.1-py37_0.tar.bz2                    1.9 MB
+xz-5.2.4-h14c3975_4.conda                    283 KB
+pysocks-1.7.1-py36h06a4308_0.conda            31 KB
+urllib3-1.24.2-py37_0.conda                  159 KB
+wheel-0.33.6-py37_0.tar.bz2                   40 KB
+chardet-4.0.0-py36h06a4308_1003.conda        199 KB
+pyopenssl-19.0.0-py37_0.conda                 84 KB
+ca-certificates-2020.12.8-h06a4308_0.conda     121 KB
+tqdm-4.36.1-py_0.conda                        50 KB
+cffi-1.14.0-py36h2e261b9_0.conda             223 KB
+libstdcxx-ng-9.1.0-hdf63c60_0.conda          3.1 MB
+requests-2.25.1-pyhd3eb1b0_0.conda            52 KB
+pysocks-1.7.1-py37_0.tar.bz2                  30 KB
+certifi-2020.12.5-py36h06a4308_0.conda       140 KB
+ruamel_yaml-0.15.46-py37h14c3975_0.conda     237 KB
+pip-20.3.3-py36h06a4308_0.conda              1.8 MB
+python-3.7.4-h265db76_1.conda               32.1 MB
+urllib3-1.26.2-pyhd3eb1b0_0.conda            105 KB
+conda-package-handling-1.7.2-py36h03888b9_0.conda     886 KB
+idna-2.10-py_0.conda                          50 KB
+conda-4.7.12-py37_0.tar.bz2                  3.0 MB
+setuptools-51.0.0-py36h06a4308_2.conda       712 KB
+ruamel_yaml-0.15.87-py36h7b6447c_0.conda     257 KB
+
+---------------------------------------------------
+Total:                                     100.4 MB
+
+Removed libedit-3.1.20181209-hc058e9b_0.conda
+Removed readline-7.0-h7b6447c_5.conda
+Removed asn1crypto-1.2.0-py37_0.tar.bz2
+Removed libffi-3.2.1-hd88cf55_4.conda
+Removed certifi-2019.9.11-py37_0.tar.bz2
+Removed openssl-1.1.1i-h27cfd23_0.conda
+Removed python-3.6.9-h265db76_0.conda
+Removed tk-8.6.8-hbc83047_0.conda
+Removed requests-2.22.0-py37_0.conda
+Removed six-1.12.0-py37_0.conda
+Removed zlib-1.2.11-h7b6447c_3.conda
+Removed _libgcc_mutex-0.1-main.conda
+Removed pyopenssl-20.0.1-pyhd3eb1b0_1.conda
+Removed six-1.15.0-py36h06a4308_0.conda
+Removed ca-certificates-2019.10.16-0.tar.bz2
+Removed openssl-1.1.1d-h7b6447c_3.tar.bz2
+Removed pycosat-0.6.3-py36h27cfd23_0.conda
+Removed ncurses-6.1-he6710b0_1.conda
+Removed cryptography-2.8-py37h1ba5d50_0.tar.bz2
+Removed cryptography-3.3.1-py36h3c74f83_0.conda
+Removed idna-2.8-py37_0.conda
+Removed conda-package-handling-1.6.0-py37h7b6447c_0.conda
+Removed pycparser-2.20-py_2.conda
+Removed chardet-3.0.4-py37_1003.conda
+Removed yaml-0.1.7-had09818_2.conda
+Removed brotlipy-0.7.0-py36h27cfd23_1003.conda
+Removed setuptools-41.4.0-py37_0.tar.bz2
+Removed libgcc-ng-9.1.0-hdf63c60_0.conda
+Removed wheel-0.36.2-pyhd3eb1b0_0.conda
+Removed pycosat-0.6.3-py37h14c3975_0.conda
+Removed cffi-1.13.0-py37h2e261b9_0.tar.bz2
+Removed sqlite-3.30.0-h7b6447c_0.tar.bz2
+Removed conda-4.9.2-py36h06a4308_0.conda
+Removed pycparser-2.19-py37_0.conda
+Removed pip-19.3.1-py37_0.tar.bz2
+Removed xz-5.2.4-h14c3975_4.conda
+Removed pysocks-1.7.1-py36h06a4308_0.conda
+Removed urllib3-1.24.2-py37_0.conda
+Removed wheel-0.33.6-py37_0.tar.bz2
+Removed chardet-4.0.0-py36h06a4308_1003.conda
+Removed pyopenssl-19.0.0-py37_0.conda
+Removed ca-certificates-2020.12.8-h06a4308_0.conda
+Removed tqdm-4.36.1-py_0.conda
+Removed cffi-1.14.0-py36h2e261b9_0.conda
+Removed libstdcxx-ng-9.1.0-hdf63c60_0.conda
+Removed requests-2.25.1-pyhd3eb1b0_0.conda
+Removed pysocks-1.7.1-py37_0.tar.bz2
+Removed certifi-2020.12.5-py36h06a4308_0.conda
+Removed ruamel_yaml-0.15.46-py37h14c3975_0.conda
+Removed pip-20.3.3-py36h06a4308_0.conda
+Removed python-3.7.4-h265db76_1.conda
+Removed urllib3-1.26.2-pyhd3eb1b0_0.conda
+Removed conda-package-handling-1.7.2-py36h03888b9_0.conda
+Removed idna-2.10-py_0.conda
+Removed conda-4.7.12-py37_0.tar.bz2
+Removed setuptools-51.0.0-py36h06a4308_2.conda
+Removed ruamel_yaml-0.15.87-py36h7b6447c_0.conda
+WARNING: /home/user/.conda/pkgs does not exist
+Cache location: /home/user/miniconda/pkgs
+Will remove the following packages:
+/home/user/miniconda/pkgs
+-------------------------
+
+six-1.12.0-py37_0                             72 KB
+asn1crypto-1.2.0-py37_0                      905 KB
+conda-4.7.12-py37_0                         11.4 MB
+pycosat-0.6.3-py37h14c3975_0                 414 KB
+requests-2.22.0-py37_0                       353 KB
+ruamel_yaml-0.15.46-py37h14c3975_0          1004 KB
+setuptools-41.4.0-py37_0                     2.8 MB
+_libgcc_mutex-0.1-main                         7 KB
+pysocks-1.7.1-py37_0                          96 KB
+python-3.7.4-h265db76_1                     83.1 MB
+openssl-1.1.1d-h7b6447c_3                   13.3 MB
+pycparser-2.19-py37_0                        949 KB
+chardet-3.0.4-py37_1003                      844 KB
+conda-package-handling-1.6.0-py37h7b6447c_0     1.7 MB
+urllib3-1.24.2-py37_0                        655 KB
+cryptography-2.8-py37h1ba5d50_0              3.4 MB
+ca-certificates-2019.10.16-0                 235 KB
+idna-2.8-py37_0                              487 KB
+pyopenssl-19.0.0-py37_0                      400 KB
+cffi-1.13.0-py37h2e261b9_0                   837 KB
+pip-19.3.1-py37_0                            7.4 MB
+certifi-2019.9.11-py37_0                     313 KB
+wheel-0.33.6-py37_0                          129 KB
+
+---------------------------------------------------
+Total:                                     130.5 MB
+
+removing six-1.12.0-py37_0
+removing asn1crypto-1.2.0-py37_0
+removing conda-4.7.12-py37_0
+removing pycosat-0.6.3-py37h14c3975_0
+removing requests-2.22.0-py37_0
+removing ruamel_yaml-0.15.46-py37h14c3975_0
+removing setuptools-41.4.0-py37_0
+removing _libgcc_mutex-0.1-main
+removing pysocks-1.7.1-py37_0
+removing python-3.7.4-h265db76_1
+removing openssl-1.1.1d-h7b6447c_3
+removing pycparser-2.19-py37_0
+removing chardet-3.0.4-py37_1003
+removing conda-package-handling-1.6.0-py37h7b6447c_0
+removing urllib3-1.24.2-py37_0
+removing cryptography-2.8-py37h1ba5d50_0
+removing ca-certificates-2019.10.16-0
+removing idna-2.8-py37_0
+removing pyopenssl-19.0.0-py37_0
+removing cffi-1.13.0-py37h2e261b9_0
+removing pip-19.3.1-py37_0
+removing certifi-2019.9.11-py37_0
+removing wheel-0.33.6-py37_0
+Removing intermediate container ad3404f838fc
+ ---> eaa4f4a210c1
+Step 17/27 : ENV NO_CUDA=1
+ ---> Running in b6040d7fb23b
+Removing intermediate container b6040d7fb23b
+ ---> 88141ab5d247
+Step 18/27 : RUN conda install -y -c pytorch     cpuonly     "pytorch=1.4.0=py3.6_cpu_0"     "torchvision=0.5.0=py36_cpu"  && conda clean -ya
+ ---> Running in 0c14fd5b61d2
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/user/miniconda
+
+  added / updated specs:
+    - cpuonly
+    - pytorch==1.4.0=py3.6_cpu_0
+    - torchvision==0.5.0=py36_cpu
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    blas-1.0                   |              mkl           6 KB
+    cpuonly-1.0                |                0           2 KB  pytorch
+    freetype-2.10.4            |       h5ab3b9f_0         596 KB
+    intel-openmp-2020.2        |              254         786 KB
+    jpeg-9b                    |       h024ee3a_2         214 KB
+    lcms2-2.11                 |       h396b838_0         307 KB
+    libpng-1.6.37              |       hbc83047_0         278 KB
+    libtiff-4.1.0              |       h2733197_0         447 KB
+    mkl-2020.2                 |              256       138.3 MB
+    mkl-service-2.3.0          |   py36he8ac12f_0          52 KB
+    mkl_fft-1.2.0              |   py36h23d657b_0         149 KB
+    mkl_random-1.1.1           |   py36h0573a6f_0         327 KB
+    ninja-1.10.2               |   py36hff7bd54_0         1.4 MB
+    numpy-1.19.2               |   py36h54aff64_0          22 KB
+    numpy-base-1.19.2          |   py36hfa32c7d_0         4.1 MB
+    olefile-0.46               |           py36_0          48 KB
+    pillow-8.0.1               |   py36he98fc37_0         621 KB
+    pytorch-1.4.0              |      py3.6_cpu_0        38.9 MB  pytorch
+    torchvision-0.5.0          |         py36_cpu        10.6 MB  pytorch
+    zstd-1.3.7                 |       h0b5b093_0         401 KB
+    ------------------------------------------------------------
+                                           Total:       197.6 MB
+
+The following NEW packages will be INSTALLED:
+
+  blas               pkgs/main/linux-64::blas-1.0-mkl
+  cpuonly            pytorch/noarch::cpuonly-1.0-0
+  freetype           pkgs/main/linux-64::freetype-2.10.4-h5ab3b9f_0
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2020.2-254
+  jpeg               pkgs/main/linux-64::jpeg-9b-h024ee3a_2
+  lcms2              pkgs/main/linux-64::lcms2-2.11-h396b838_0
+  libpng             pkgs/main/linux-64::libpng-1.6.37-hbc83047_0
+  libtiff            pkgs/main/linux-64::libtiff-4.1.0-h2733197_0
+  mkl                pkgs/main/linux-64::mkl-2020.2-256
+  mkl-service        pkgs/main/linux-64::mkl-service-2.3.0-py36he8ac12f_0
+  mkl_fft            pkgs/main/linux-64::mkl_fft-1.2.0-py36h23d657b_0
+  mkl_random         pkgs/main/linux-64::mkl_random-1.1.1-py36h0573a6f_0
+  ninja              pkgs/main/linux-64::ninja-1.10.2-py36hff7bd54_0
+  numpy              pkgs/main/linux-64::numpy-1.19.2-py36h54aff64_0
+  numpy-base         pkgs/main/linux-64::numpy-base-1.19.2-py36hfa32c7d_0
+  olefile            pkgs/main/linux-64::olefile-0.46-py36_0
+  pillow             pkgs/main/linux-64::pillow-8.0.1-py36he98fc37_0
+  pytorch            pytorch/linux-64::pytorch-1.4.0-py3.6_cpu_0
+  torchvision        pytorch/linux-64::torchvision-0.5.0-py36_cpu
+  zstd               pkgs/main/linux-64::zstd-1.3.7-h0b5b093_0
+
+
+
+Downloading and Extracting Packages
+ninja-1.10.2         | 1.4 MB    | ########## | 100% 
+pytorch-1.4.0        | 38.9 MB   | ########## | 100% 
+zstd-1.3.7           | 401 KB    | ########## | 100% 
+freetype-2.10.4      | 596 KB    | ########## | 100% 
+lcms2-2.11           | 307 KB    | ########## | 100% 
+olefile-0.46         | 48 KB     | ########## | 100% 
+mkl-service-2.3.0    | 52 KB     | ########## | 100% 
+numpy-base-1.19.2    | 4.1 MB    | ########## | 100% 
+intel-openmp-2020.2  | 786 KB    | ########## | 100% 
+torchvision-0.5.0    | 10.6 MB   | ########## | 100% 
+mkl-2020.2           | 138.3 MB  | ########## | 100% 
+blas-1.0             | 6 KB      | ########## | 100% 
+pillow-8.0.1         | 621 KB    | ########## | 100% 
+mkl_fft-1.2.0        | 149 KB    | ########## | 100% 
+cpuonly-1.0          | 2 KB      | ########## | 100% 
+jpeg-9b              | 214 KB    | ########## | 100% 
+numpy-1.19.2         | 22 KB     | ########## | 100% 
+mkl_random-1.1.1     | 327 KB    | ########## | 100% 
+libtiff-4.1.0        | 447 KB    | ########## | 100% 
+libpng-1.6.37        | 278 KB    | ########## | 100% 
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Cache location: /home/user/miniconda/pkgs
+Will remove the following tarballs:
+
+/home/user/miniconda/pkgs
+-------------------------
+mkl-2020.2-256.conda                       138.3 MB
+mkl-service-2.3.0-py36he8ac12f_0.conda        52 KB
+mkl_fft-1.2.0-py36h23d657b_0.conda           149 KB
+zstd-1.3.7-h0b5b093_0.conda                  401 KB
+freetype-2.10.4-h5ab3b9f_0.conda             596 KB
+intel-openmp-2020.2-254.conda                786 KB
+jpeg-9b-h024ee3a_2.conda                     214 KB
+ninja-1.10.2-py36hff7bd54_0.conda            1.4 MB
+torchvision-0.5.0-py36_cpu.tar.bz2          10.6 MB
+pytorch-1.4.0-py3.6_cpu_0.tar.bz2           38.9 MB
+olefile-0.46-py36_0.conda                     48 KB
+pillow-8.0.1-py36he98fc37_0.conda            621 KB
+libtiff-4.1.0-h2733197_0.conda               447 KB
+numpy-1.19.2-py36h54aff64_0.conda             22 KB
+numpy-base-1.19.2-py36hfa32c7d_0.conda       4.1 MB
+mkl_random-1.1.1-py36h0573a6f_0.conda        327 KB
+blas-1.0-mkl.conda                             6 KB
+cpuonly-1.0-0.tar.bz2                          2 KB
+lcms2-2.11-h396b838_0.conda                  307 KB
+libpng-1.6.37-hbc83047_0.conda               278 KB
+
+---------------------------------------------------
+Total:                                     197.6 MB
+
+Removed mkl-2020.2-256.conda
+Removed mkl-service-2.3.0-py36he8ac12f_0.conda
+Removed mkl_fft-1.2.0-py36h23d657b_0.conda
+Removed zstd-1.3.7-h0b5b093_0.conda
+Removed freetype-2.10.4-h5ab3b9f_0.conda
+Removed intel-openmp-2020.2-254.conda
+Removed jpeg-9b-h024ee3a_2.conda
+Removed ninja-1.10.2-py36hff7bd54_0.conda
+Removed torchvision-0.5.0-py36_cpu.tar.bz2
+Removed pytorch-1.4.0-py3.6_cpu_0.tar.bz2
+Removed olefile-0.46-py36_0.conda
+Removed pillow-8.0.1-py36he98fc37_0.conda
+Removed libtiff-4.1.0-h2733197_0.conda
+Removed numpy-1.19.2-py36h54aff64_0.conda
+Removed numpy-base-1.19.2-py36hfa32c7d_0.conda
+Removed mkl_random-1.1.1-py36h0573a6f_0.conda
+Removed blas-1.0-mkl.conda
+Removed cpuonly-1.0-0.tar.bz2
+Removed lcms2-2.11-h396b838_0.conda
+Removed libpng-1.6.37-hbc83047_0.conda
+WARNING: /home/user/.conda/pkgs does not exist
+Cache location: /home/user/miniconda/pkgs
+Will remove the following packages:
+/home/user/miniconda/pkgs
+-------------------------
+
+numpy-1.19.2-py36h54aff64_0                   68 KB
+cpuonly-1.0-0                                  4 KB
+blas-1.0-mkl                                  15 KB
+
+---------------------------------------------------
+Total:                                        87 KB
+
+removing numpy-1.19.2-py36h54aff64_0
+removing cpuonly-1.0-0
+removing blas-1.0-mkl
+Removing intermediate container 0c14fd5b61d2
+ ---> 6d8d17c5ba36
+Step 19/27 : RUN conda install pandas
+ ---> Running in 10fdd8bb229d
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/user/miniconda
+
+  added / updated specs:
+    - pandas
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    pandas-1.1.5               |   py36ha9443f7_0         8.2 MB
+    python-dateutil-2.8.1      |             py_0         215 KB
+    pytz-2020.5                |     pyhd3eb1b0_0         182 KB
+    ------------------------------------------------------------
+                                           Total:         8.5 MB
+
+The following NEW packages will be INSTALLED:
+
+  pandas             pkgs/main/linux-64::pandas-1.1.5-py36ha9443f7_0
+  python-dateutil    pkgs/main/noarch::python-dateutil-2.8.1-py_0
+  pytz               pkgs/main/noarch::pytz-2020.5-pyhd3eb1b0_0
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages
+pandas-1.1.5         | 8.2 MB    | ########## | 100% 
+pytz-2020.5          | 182 KB    | ########## | 100% 
+python-dateutil-2.8. | 215 KB    | ########## | 100% 
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Removing intermediate container 10fdd8bb229d
+ ---> 9afa905e63c9
+Step 20/27 : RUN conda install numpy
+ ---> Running in 1f8ffd03c7f2
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+# All requested packages already installed.
+
+Removing intermediate container 1f8ffd03c7f2
+ ---> 5ea9818a3d13
+Step 21/27 : RUN conda install pyyaml
+ ---> Running in b7900ee42136
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/user/miniconda
+
+  added / updated specs:
+    - pyyaml
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    pyyaml-5.3.1               |   py36h7b6447c_0         180 KB
+    ------------------------------------------------------------
+                                           Total:         180 KB
+
+The following NEW packages will be INSTALLED:
+
+  pyyaml             pkgs/main/linux-64::pyyaml-5.3.1-py36h7b6447c_0
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages
+pyyaml-5.3.1         | 180 KB    | ########## | 100% 
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Removing intermediate container b7900ee42136
+ ---> 0e88be563e61
+Step 22/27 : RUN conda install -c anaconda scipy
+ ---> Running in 11b29e54e17b
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/user/miniconda
+
+  added / updated specs:
+    - scipy
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2020.10.14 |                0         128 KB  anaconda
+    certifi-2020.6.20          |           py36_0         160 KB  anaconda
+    libgfortran-ng-7.3.0       |       hdf63c60_0         1.3 MB  anaconda
+    scipy-1.5.2                |   py36h0b6359f_0        14.4 MB
+    ------------------------------------------------------------
+                                           Total:        16.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  libgfortran-ng     anaconda/linux-64::libgfortran-ng-7.3.0-hdf63c60_0
+  scipy              pkgs/main/linux-64::scipy-1.5.2-py36h0b6359f_0
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  ca-certificates    pkgs/main::ca-certificates-2020.12.8-~ --> anaconda::ca-certificates-2020.10.14-0
+  certifi            pkgs/main::certifi-2020.12.5-py36h06a~ --> anaconda::certifi-2020.6.20-py36_0
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages
+certifi-2020.6.20    | 160 KB    | ########## | 100% 
+scipy-1.5.2          | 14.4 MB   | ########## | 100% 
+ca-certificates-2020 | 128 KB    | ########## | 100% 
+libgfortran-ng-7.3.0 | 1.3 MB    | ########## | 100% 
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Removing intermediate container 11b29e54e17b
+ ---> 20e6b0915819
+Step 23/27 : RUN conda install -c conda-forge nibabel
+ ---> Running in 2abed6264ca5
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/user/miniconda
+
+  added / updated specs:
+    - nibabel
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2020.12.5  |       ha878542_0         137 KB  conda-forge
+    cached-property-1.5.1      |             py_0          10 KB  conda-forge
+    certifi-2020.12.5          |   py36h5fab9bb_0         143 KB  conda-forge
+    h5py-3.1.0                 |nompi_py36hc1bc4f5_100         1.2 MB  conda-forge
+    hdf5-1.10.6                |nompi_h3c11f04_101         3.0 MB  conda-forge
+    nibabel-3.2.1              |     pyhd8ed1ab_0         2.7 MB  conda-forge
+    packaging-20.8             |     pyhd3deb0d_0          34 KB  conda-forge
+    pydicom-2.1.2              |     pyhd3deb0d_0         1.3 MB  conda-forge
+    pyparsing-2.4.7            |     pyh9f0ad1d_0          60 KB  conda-forge
+    python_abi-3.6             |          1_cp36m           4 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         8.7 MB
+
+The following NEW packages will be INSTALLED:
+
+  cached-property    conda-forge/noarch::cached-property-1.5.1-py_0
+  h5py               conda-forge/linux-64::h5py-3.1.0-nompi_py36hc1bc4f5_100
+  hdf5               conda-forge/linux-64::hdf5-1.10.6-nompi_h3c11f04_101
+  nibabel            conda-forge/noarch::nibabel-3.2.1-pyhd8ed1ab_0
+  packaging          conda-forge/noarch::packaging-20.8-pyhd3deb0d_0
+  pydicom            conda-forge/noarch::pydicom-2.1.2-pyhd3deb0d_0
+  pyparsing          conda-forge/noarch::pyparsing-2.4.7-pyh9f0ad1d_0
+  python_abi         conda-forge/linux-64::python_abi-3.6-1_cp36m
+
+The following packages will be UPDATED:
+
+  ca-certificates    anaconda::ca-certificates-2020.10.14-0 --> conda-forge::ca-certificates-2020.12.5-ha878542_0
+  certifi                anaconda::certifi-2020.6.20-py36_0 --> conda-forge::certifi-2020.12.5-py36h5fab9bb_0
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages
+pydicom-2.1.2        | 1.3 MB    | ########## | 100% 
+cached-property-1.5. | 10 KB     | ########## | 100% 
+python_abi-3.6       | 4 KB      | ########## | 100% 
+certifi-2020.12.5    | 143 KB    | ########## | 100% 
+nibabel-3.2.1        | 2.7 MB    | ########## | 100% 
+pyparsing-2.4.7      | 60 KB     | ########## | 100% 
+h5py-3.1.0           | 1.2 MB    | ########## | 100% 
+ca-certificates-2020 | 137 KB    | ########## | 100% 
+hdf5-1.10.6          | 3.0 MB    | ########## | 100% 
+packaging-20.8       | 34 KB     | ########## | 100% 
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Removing intermediate container 2abed6264ca5
+ ---> 6c7d6adda001
+Step 24/27 : RUN conda install -c anaconda scikit-image
+ ---> Running in 7194dba72e91
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/user/miniconda
+
+  added / updated specs:
+    - scikit-image
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    cloudpickle-1.6.0          |             py_0          29 KB  anaconda
+    cycler-0.10.0              |           py36_0          13 KB  anaconda
+    cytoolz-0.11.0             |   py36h7b6447c_0         376 KB  anaconda
+    dask-core-2.30.0           |             py_0         639 KB  anaconda
+    decorator-4.4.2            |             py_0          14 KB  anaconda
+    icu-58.2                   |       he6710b0_3        22.7 MB  anaconda
+    imageio-2.9.0              |             py_0         3.1 MB  anaconda
+    kiwisolver-1.2.0           |   py36hfd86e86_0          91 KB  anaconda
+    matplotlib-base-3.1.3      |   py36hef1b27d_0         6.6 MB  anaconda
+    networkx-2.5               |             py_0         1.2 MB  anaconda
+    pywavelets-1.1.1           |   py36h7b6447c_2         4.4 MB  anaconda
+    scikit-image-0.17.2        |   py36hdf5156a_0        10.8 MB  anaconda
+    tifffile-2020.10.1         |   py36hdd07704_2         272 KB  anaconda
+    toolz-0.11.1               |             py_0          47 KB  anaconda
+    tornado-6.0.4              |   py36h7b6447c_1         650 KB  anaconda
+    ------------------------------------------------------------
+                                           Total:        50.9 MB
+
+The following NEW packages will be INSTALLED:
+
+  cloudpickle        anaconda/noarch::cloudpickle-1.6.0-py_0
+  cycler             anaconda/linux-64::cycler-0.10.0-py36_0
+  cytoolz            anaconda/linux-64::cytoolz-0.11.0-py36h7b6447c_0
+  dask-core          anaconda/noarch::dask-core-2.30.0-py_0
+  decorator          anaconda/noarch::decorator-4.4.2-py_0
+  icu                anaconda/linux-64::icu-58.2-he6710b0_3
+  imageio            anaconda/noarch::imageio-2.9.0-py_0
+  kiwisolver         anaconda/linux-64::kiwisolver-1.2.0-py36hfd86e86_0
+  matplotlib-base    anaconda/linux-64::matplotlib-base-3.1.3-py36hef1b27d_0
+  networkx           anaconda/noarch::networkx-2.5-py_0
+  pywavelets         anaconda/linux-64::pywavelets-1.1.1-py36h7b6447c_2
+  scikit-image       anaconda/linux-64::scikit-image-0.17.2-py36hdf5156a_0
+  tifffile           anaconda/linux-64::tifffile-2020.10.1-py36hdd07704_2
+  toolz              anaconda/noarch::toolz-0.11.1-py_0
+  tornado            anaconda/linux-64::tornado-6.0.4-py36h7b6447c_1
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  ca-certificates    conda-forge::ca-certificates-2020.12.~ --> anaconda::ca-certificates-2020.10.14-0
+  certifi            conda-forge::certifi-2020.12.5-py36h5~ --> anaconda::certifi-2020.6.20-py36_0
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages
+cycler-0.10.0        | 13 KB     | ########## | 100% 
+dask-core-2.30.0     | 639 KB    | ########## | 100% 
+cytoolz-0.11.0       | 376 KB    | ########## | 100% 
+tifffile-2020.10.1   | 272 KB    | ########## | 100% 
+decorator-4.4.2      | 14 KB     | ########## | 100% 
+matplotlib-base-3.1. | 6.6 MB    | ########## | 100% 
+scikit-image-0.17.2  | 10.8 MB   | ########## | 100% 
+imageio-2.9.0        | 3.1 MB    | ########## | 100% 
+icu-58.2             | 22.7 MB   | ########## | 100% 
+toolz-0.11.1         | 47 KB     | ########## | 100% 
+tornado-6.0.4        | 650 KB    | ########## | 100% 
+pywavelets-1.1.1     | 4.4 MB    | ########## | 100% 
+kiwisolver-1.2.0     | 91 KB     | ########## | 100% 
+networkx-2.5         | 1.2 MB    | ########## | 100% 
+cloudpickle-1.6.0    | 29 KB     | ########## | 100% 
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Removing intermediate container 7194dba72e91
+ ---> 066438a690c4
+Step 25/27 : RUN pip install --upgrade pip &&     pip install --no-cache-dir pypdf2 pymupdf
+ ---> Running in 54aae2005366
+Requirement already satisfied: pip in /home/user/miniconda/lib/python3.6/site-packages (20.3.3)
+Collecting pymupdf
+  Downloading PyMuPDF-1.18.5-cp36-cp36m-manylinux2010_x86_64.whl (6.3 MB)
+Collecting pypdf2
+  Downloading PyPDF2-1.26.0.tar.gz (77 kB)
+Building wheels for collected packages: pypdf2
+  Building wheel for pypdf2 (setup.py): started
+  Building wheel for pypdf2 (setup.py): finished with status 'done'
+  Created wheel for pypdf2: filename=PyPDF2-1.26.0-py3-none-any.whl size=61085 sha256=725bc7fc2835b63b12fc4f603f21a5a7789de80d61cde358d8d1f41093e550ab
+  Stored in directory: /tmp/pip-ephem-wheel-cache-q86ukisa/wheels/97/28/4b/142b7d8c98eeeb73534b9c5b6558ddd3bab3c2c8192aa7ab30
+Successfully built pypdf2
+Installing collected packages: pypdf2, pymupdf
+Successfully installed pymupdf-1.18.5 pypdf2-1.26.0
+Removing intermediate container 54aae2005366
+ ---> 95221922893a
+Step 26/27 : COPY . .
+ ---> c0a301a5e411
+Step 27/27 : CMD ["python3"]
+ ---> Running in 76de68accb1e
+Removing intermediate container 76de68accb1e
+ ---> a120a5ae42c0
+Successfully built a120a5ae42c0
+Successfully tagged deeplungcpuv2:0.1
+You have mail in /var/mail/gaor2
+gaor2@masi-21:~/code/DeepOpenLung$ 
+
