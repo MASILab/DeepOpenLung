@@ -1,4 +1,3 @@
-gaor2@masi-21:~/code/DeepOpenLung$ sudo docker build --no-cache --tag deeplungcpuv2:0.1 .
 Sending build context to Docker daemon  87.07MB
 Step 1/27 : FROM ubuntu:16.04
  ---> dfeff22e96ae
