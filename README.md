@@ -63,16 +63,16 @@ Example command line:
 Note: there is a variable 'gpu' in config.yaml. set 'gpu' as 'True' in GPU version, 'gpu' as 'False' in CPU version. 
 
 (1)For NIfTI-cpu: 
-> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplungcpu:0.2 sh run_all.sh  /INPUTS /OUTPUTS /config.yaml /LOG
+> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplungcpu:0.3 sh run_all.sh  /INPUTS /OUTPUTS /config.yaml /LOG
 
 (2) For DICOM-cpu: 
-> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplungcpu:0.2 sh run_all_DICOM.sh /INPUTS /OUTPUTS /config.yaml /LOG
+> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplungcpu:0.3 sh run_all_DICOM.sh /INPUTS /OUTPUTS /config.yaml /LOG
 
 (3) GPU-nifti: 
-> sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplunggpu:0.3 sh run_all.sh /INPUTS /OUTPUTS /config.yaml /LOG
+> sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplunggpu:0.4 sh run_all.sh /INPUTS /OUTPUTS /config.yaml /LOG
 
 (4) GPU-DICOM: 
-> sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplunggpu:0.3 sh run_all_DICOM.sh /INPUTS /OUTPUTS /config.yaml /LOG
+> sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplunggpu:0.4 sh run_all_DICOM.sh /INPUTS /OUTPUTS /config.yaml /LOG
 
 
 
