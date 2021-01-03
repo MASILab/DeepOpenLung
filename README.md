@@ -51,7 +51,7 @@ All the steps can be find in run_all.sh. A INPUTS and OUTPUTS example can be fou
 
 # Docker
 
-Docker image can be downloaded from docker hub: rg15/deeplunggpu:0.4 (built from Docker.gpu), rg15/deeplungcpu:0.3 (built from Docker.gpu)
+Docker image can be downloaded from docker hub: rg15/deeplunggpu:0.4 (built from Docker.gpu), rg15/deeplungcpu:0.3 (built from Docker.cpu)
 
 INPUTS / OUTPUTS / config.yaml example can be downloaded from: 
 https://vanderbilt.box.com/s/6h6388kw6h4jbjogd8yk1xqp9eotd3tv
@@ -63,19 +63,17 @@ Example command line:
 Note: there is a variable 'gpu' in config.yaml. set 'gpu' as 'True' in GPU version, 'gpu' as 'False' in CPU version. 
 
 (1)For NIfTI-cpu: 
-> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplungcpu:0.2 sh run_all.sh  /INPUTS /OUTPUTS /config.yaml
+> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplungcpu:0.2 sh run_all.sh  /INPUTS /OUTPUTS /config.yaml /LOG
 
 (2) For DICOM-cpu: 
-> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplungcpu:0.2 sh run_all_DICOM.sh /INPUTS /OUTPUTS /config.yaml
+> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplungcpu:0.2 sh run_all_DICOM.sh /INPUTS /OUTPUTS /config.yaml /LOG
 
 (3) GPU-nifti: 
-> sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplunggpu:0.3 sh run_all.sh /INPUTS /OUTPUTS /config.yaml
+> sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplunggpu:0.3 sh run_all.sh /INPUTS /OUTPUTS /config.yaml /LOG
 
 (4) GPU-DICOM: 
-> sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplunggpu:0.3 sh run_all_DICOM.sh /INPUTS /OUTPUTS /config.yaml
+> sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplunggpu:0.3 sh run_all_DICOM.sh /INPUTS /OUTPUTS /config.yaml /LOG
 
-(5) NIFTI-cpu (saving log): 
 
-> sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml rg15/deeplungcpu:0.2 sh run_all.sh /INPUTS /OUTPUTS /config.yaml | & tee {save_log_path}
 
 In this version, the "/INPUTS", "/OUTPUTS" and "/config.yaml" are self-defined path for INPUTS, OUTPUTS and config. User can change it. If left blank, "/INPUTS", "/OUTPUTS" and "/config.yaml" are default values. 
