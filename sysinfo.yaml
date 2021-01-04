@@ -1,0 +1,11 @@
+cpu_version:
+  "cpu_memory_required": 24G
+  "cpu_nifti_command": "sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplungcpu:0.3 sh run_all.sh  /INPUTS /OUTPUTS /config.yaml /LOG"
+  "cpu_DICOM_command": "sudo docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplungcpu:0.3 sh run_all_DICOM.sh /INPUTS /OUTPUTS /config.yaml /LOG"
+  
+gpu_version: 
+  "gpu_memory_required": 3G
+  "gpu_nifti_command": "sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplunggpu:0.4 sh run_all.sh /INPUTS /OUTPUTS /config.yaml /LOG"
+  "gpu_DICOM_command": "sudo nvidia-docker run -u root -v {LOCAL INPUTS PATH}:/INPUTS/ -v {LOCAL OUTPUTS PATH}:/OUTPUTS/ -v {LCOAL CONFIG PATH}:/config.yaml -v {LOCAL LOG PATH}:/LOG rg15/deeplunggpu:0.4 sh run_all_DICOM.sh /INPUTS /OUTPUTS /config.yaml /LOG"
+  
+DOI: None 

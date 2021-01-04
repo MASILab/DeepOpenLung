@@ -1,0 +1,59 @@
+detect:
+  'anchors': [ 10.0, 30.0, 60.] 
+  'chanel': 1
+  'pad_value': 170
+  'stride': 4
+  'max_stride': 16
+  'anchors': [ 10.0, 30.0, 60.]
+  'crop_size': [128, 128, 128] 
+  'margin': 32 
+  'sidelen': 144
+  'num_neg': 800 
+  'th_neg': 0.02
+  'th_pos_train': 0.5 
+  'num_hard': 2 
+  'bound_size': 12 
+  'reso': 1
+  'sizelim': 6 
+  'sizelim2': 30
+  'sizelim3': 40
+  'aug_scale': True 
+  'r_rand_crop': 0.3
+  'luna_raw': True
+  'cleanimg': True
+  'augtype': {'flip':True,'swap':False,'scale':True,'rotate':False}
+  'lr_stage': [50,100,120]
+  'lr': [0.01,0.001,0.0001]
+  'blacklist': []
+  'gpu': False
+
+
+
+cls:
+  'topk': 5
+  'resample': None
+  'preload_train': True
+  'preload_val': True
+  'padmask': False
+  'crop_size': [96,96,96]
+  'scaleLim': [0.85,1.15]
+  'radiusLim': [6,100]
+  'jitter_range': 0.15
+  'isScale': True
+  'random_sample': True
+  'T': 1
+  'topk': 5
+  'stride': 4
+  'augtype': {'flip':True,'swap':False,'rotate':False,'scale':False}
+  'detect_th': 0.05
+  'conf_th': -1
+  'nms_th': 0.05
+  'filling_value': 160
+  'startepoch': 20
+  'lr_stage': [50,100,140,160]
+  'lr': [0.01,0.001,0.0001,0.00001]
+  'miss_ratio': 1
+  'miss_thresh': 0.03
+  'anchors': [10,30,60]
+  'gpu': False
+

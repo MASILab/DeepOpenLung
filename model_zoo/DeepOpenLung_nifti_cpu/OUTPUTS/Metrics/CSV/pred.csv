@@ -1,0 +1,2 @@
+patient_id,exam_id,pred,desciption
+10001,10001_001,0.0181,"Based on the image and clinical elements, the likelihood of lung cancer in this patient is 0.0181"

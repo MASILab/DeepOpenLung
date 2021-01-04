@@ -77,3 +77,7 @@ Note: there is a variable 'gpu' in config.yaml. set 'gpu' as 'True' in GPU versi
 
 
 In this version, the "/INPUTS", "/OUTPUTS" and "/config.yaml" are self-defined path for INPUTS, OUTPUTS and config. User can change it. If left blank, "/INPUTS", "/OUTPUTS" and "/config.yaml" are default values. 
+
+# Model Zoo Examples
+
+We separate the 4 conditions above as 4 models, list in the model_zoo folder (DeepOpenLung_dicom_cpu, DeepOpenLung_dicom_gpu, DeepOpenLung_nifti_cpu, DeepOpenLung_nifti_gpu). The running command line can be found in the readme of each subfolder. 
