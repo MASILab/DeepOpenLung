@@ -3,6 +3,9 @@ Please put the input data into the folder ./model_zoo/DeepOpenLung_dicom_gpu/inp
 Then, run the following command lines. The output will be saved in ./model_zoo/DeepOpenLung_dicom_gpu/output_dir
 
 
+Example can be downloaded from https://vanderbilt.box.com/s/6h6388kw6h4jbjogd8yk1xqp9eotd3tv
+
+
 > cd DeepOpenLung
 
 > export input_dir=./model_zoo/DeepOpenLung_dicom_gpu/input_dir
