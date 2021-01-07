@@ -1,0 +1,11 @@
+
+"name": "deep open lung (cpu)"
+"release date": "Dec. 20, 2020"
+"vendor": 'Vanderbilt University'
+"author": 'Riqiang Gao'
+"cpu_memory": 24G
+"gpu_memory": 0G
+"version": 0.3
+'description': "lung cancer detection with CT image and clinical data (cpu)"
+  
+DOI: None 
