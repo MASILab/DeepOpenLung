@@ -18,5 +18,29 @@ gpu_version:
   "version": 0.4
   'description': "lung cancer detection with CT image and clinical data (gpu)"
   
-  
 DOI: None 
+
+## Requirements of running the docker (see below), for Flowsigma (Optional)
+
+### Minimum Memory
+CPU: 4 GB  
+
+### Data Input
+Modality: CT
+Anatomy: Lungs
+Projection: axial
+Contrast: non
+Slice_thickness: 2.5
+KVP: 120
+X-Ray_Tube_Current(mAs): 120
+Recon_kernel/filter: 'STANDARD'
+Windows_Center: "40"
+Window_Width: "400"
+Note: Note this is the information for the example image. Other reasonable settings of a CT should also be working. 
+
+### Data Output
+
+Images: .nii.gz
+PDF: .pdf
+Text: None (for this simple demo)
+CSV: None (for this simple demo)
