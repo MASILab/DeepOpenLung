@@ -10,3 +10,25 @@
   
   
 DOI: None 
+
+## Requirements of running the docker (see below), for Flowsigma (Optional)
+
+### Data Input
+Modality: CT
+Anatomy: Lungs
+Projection: axial
+Contrast: non
+Slice_thickness: 2.5
+KVP: 120
+X-Ray_Tube_Current(mAs): 120
+Recon_kernel/filter: 'STANDARD'
+Windows_Center: "40"
+Window_Width: "400"
+Note: Note this is the information for the example image. Other reasonable settings of a CT should also be working. 
+
+### Data Output
+
+Images: .nii.gz
+PDF: .pdf
+Text: desciption in .csv
+CSV: .csv

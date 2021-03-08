@@ -22,9 +22,6 @@ DOI: None
 
 ## Requirements of running the docker (see below), for Flowsigma (Optional)
 
-### Minimum Memory
-CPU: 4 GB  
-
 ### Data Input
 Modality: CT
 Anatomy: Lungs
@@ -42,5 +39,5 @@ Note: Note this is the information for the example image. Other reasonable setti
 
 Images: .nii.gz
 PDF: .pdf
-Text: None (for this simple demo)
-CSV: None (for this simple demo)
+Text: desciption in .csv
+CSV: .csv
